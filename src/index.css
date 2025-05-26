@@ -129,16 +129,7 @@
       width: 0;
     }
     to {
-      width: 100%;
-    }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
+      width: 5rem;
     }
   }
 
@@ -154,10 +145,6 @@
     animation: slide-in-right 0.8s ease-out forwards;
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
   .delay-300 {
     animation-delay: 300ms;
   }
@@ -168,9 +155,5 @@
 
   .delay-700 {
     animation-delay: 700ms;
-  }
-
-  .backdrop-blur-sm {
-    backdrop-filter: blur(4px);
   }
 }
