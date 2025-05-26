@@ -1,5 +1,5 @@
 
-import { Award, Heart, Target } from 'lucide-react';
+import { Award, Heart, Target, Monitor } from 'lucide-react';
 
 const AboutSection = () => {
   return (
