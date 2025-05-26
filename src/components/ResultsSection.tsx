@@ -24,53 +24,58 @@ const ResultsSection = () => {
   ];
 
   return (
-    <section id="results" className="py-20 bg-gray-50">
+    <section id="results" className="py-20 bg-gradient-to-b from-gray-900 to-black">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Echte <span className="text-orange-600">Ergebnisse</span>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Echte <span className="text-red-500 bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Ergebnisse</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Zahlen, die sprechen – und Kunden, die begeistert sind.
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mt-4"></div>
         </div>
 
         {/* Highlight Projekt */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-200">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl p-8 mb-16 border border-gray-700 hover:border-red-500/50 transition-all duration-500 animate-fade-in delay-300 transform hover:scale-105">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <div className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full font-semibold">
+              <div className="inline-block bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full font-semibold animate-pulse">
                 Highlight-Projekt
               </div>
-              <h3 className="text-3xl font-bold text-gray-900">
+              <h3 className="text-3xl font-bold text-white">
                 Instagram Car-Profil
               </h3>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-gray-300">
                 Durch gezielte Trendanalyse und strategischen Content-Aufbau über 
-                <strong className="text-orange-600"> 30 Millionen Aufrufe in einem Monat</strong> erreicht.
+                <strong className="text-red-500"> 30 Millionen Aufrufe in einem Monat</strong> erreicht.
               </p>
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-50 p-4 rounded-lg text-center">
-                  <TrendingUp className="w-8 h-8 text-orange-600 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">30M+</div>
-                  <div className="text-sm text-gray-600">Aufrufe</div>
+                <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-4 rounded-lg text-center border border-gray-600 hover:border-red-500/50 transition-all duration-300 transform hover:scale-105">
+                  <TrendingUp className="w-8 h-8 text-red-500 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-white">30M+</div>
+                  <div className="text-sm text-gray-300">Aufrufe</div>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg text-center">
-                  <Users className="w-8 h-8 text-orange-600 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">150K+</div>
-                  <div className="text-sm text-gray-600">Neue Follower</div>
+                <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-4 rounded-lg text-center border border-gray-600 hover:border-red-500/50 transition-all duration-300 transform hover:scale-105">
+                  <Users className="w-8 h-8 text-red-500 mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-white">150K+</div>
+                  <div className="text-sm text-gray-300">Neue Follower</div>
                 </div>
               </div>
             </div>
             
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" 
-                alt="Social Media Analytics Dashboard" 
-                className="w-full h-80 object-cover rounded-xl shadow-lg"
-              />
-              <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              <div className="w-full h-80 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500 rounded-xl shadow-lg flex items-center justify-center text-white border border-gray-600">
+                <div className="text-center space-y-4">
+                  <div className="w-16 h-16 bg-red-500 rounded-full mx-auto flex items-center justify-center">
+                    <TrendingUp className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-lg font-bold">Analytics Dashboard</div>
+                  <div className="text-sm text-gray-200">Social Media Insights</div>
+                </div>
+              </div>
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
                 Live-Projekt
               </div>
             </div>
@@ -80,16 +85,20 @@ const ResultsSection = () => {
         {/* Testimonials */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div 
+              key={index} 
+              className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-red-500/20 hover:shadow-2xl transition-all duration-500 border border-gray-700 hover:border-red-500/50 transform hover:scale-105 animate-fade-in"
+              style={{ animationDelay: `${(index + 1) * 200}ms` }}
+            >
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-red-500 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+              <p className="text-gray-300 mb-6 italic hover:text-white transition-colors duration-300">"{testimonial.text}"</p>
               <div>
-                <div className="font-bold text-gray-900">{testimonial.name}</div>
-                <div className="text-orange-600 text-sm">{testimonial.business}</div>
+                <div className="font-bold text-white">{testimonial.name}</div>
+                <div className="text-red-400 text-sm">{testimonial.business}</div>
               </div>
             </div>
           ))}
