@@ -14,7 +14,6 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Here you would typically send the form data to your backend
     alert('Vielen Dank für deine Nachricht! Ich melde mich innerhalb von 24h bei dir.');
   };
 
@@ -29,7 +28,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 text-white">
+    <section id="contact" className="py-20 bg-gray-900 text-white relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">
@@ -41,7 +40,6 @@ const ContactSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-6 text-white">Direkt kontaktieren</h3>
@@ -72,7 +70,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-white text-gray-900 p-8 rounded-2xl shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
