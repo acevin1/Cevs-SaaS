@@ -53,7 +53,7 @@ const ServicesSection = () => {
     <section id="services" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 text-white">
             Meine <span className="text-red-500">Leistungen</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
@@ -72,7 +72,7 @@ const ServicesSection = () => {
               <div className="flex items-start gap-4 mb-6">
                 <service.icon className="w-12 h-12 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
                   <p className="text-gray-300">{service.description}</p>
                 </div>
               </div>

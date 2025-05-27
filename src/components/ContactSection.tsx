@@ -32,7 +32,7 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 text-white">
             Lass uns über dein <span className="text-red-500">Projekt</span> sprechen
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -44,19 +44,19 @@ const ContactSection = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Direkt kontaktieren</h3>
+              <h3 className="text-2xl font-bold mb-6 text-white">Direkt kontaktieren</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="w-6 h-6 text-red-500" />
-                  <span className="text-lg">max.mueller@webdev-pro.de</span>
+                  <span className="text-lg text-gray-300">max.mueller@webdev-pro.de</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="w-6 h-6 text-red-500" />
-                  <span className="text-lg">+49 123 456 7890</span>
+                  <span className="text-lg text-gray-300">+49 123 456 7890</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <MessageCircle className="w-6 h-6 text-red-500" />
-                  <span className="text-lg">WhatsApp Business verfügbar</span>
+                  <span className="text-lg text-gray-300">WhatsApp Business verfügbar</span>
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@ const ContactSection = () => {
           <div className="bg-white text-gray-900 p-8 rounded-2xl shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
                   Name *
                 </label>
                 <input
@@ -86,13 +86,13 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
                   placeholder="Dein Name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
                   E-Mail *
                 </label>
                 <input
@@ -102,13 +102,13 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
                   placeholder="deine@email.de"
                 />
               </div>
 
               <div>
-                <label htmlFor="topic" className="block text-sm font-semibold mb-2">
+                <label htmlFor="topic" className="block text-sm font-semibold mb-2 text-gray-900">
                   Thema
                 </label>
                 <select
@@ -116,7 +116,7 @@ const ContactSection = () => {
                   name="topic"
                   value={formData.topic}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
                 >
                   <option value="">Bitte wählen...</option>
                   <option value="website">Website-Erstellung</option>
@@ -128,7 +128,7 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-900">
                   Nachricht *
                 </label>
                 <textarea
@@ -138,7 +138,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
                   placeholder="Erzähl mir von deinem Projekt..."
                 />
               </div>
@@ -152,7 +152,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
                 />
-                <label htmlFor="callback" className="text-sm">
+                <label htmlFor="callback" className="text-sm text-gray-900">
                   Ich wünsche einen Rückruf
                 </label>
               </div>
