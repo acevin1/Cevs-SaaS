@@ -54,13 +54,13 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            Meine <span className="text-orange-500">Leistungen</span>
+            Meine <span className="text-red-500">Leistungen</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             Alles individuell abgestimmt auf deine Bedürfnisse – keine Standard-Pakete, sondern maßgeschneiderte Lösungen.
           </p>
-          <div className="bg-orange-600/20 border border-orange-600 rounded-lg p-4 inline-block">
-            <p className="text-orange-300 font-semibold">
+          <div className="bg-red-600/20 border border-red-600 rounded-lg p-4 inline-block">
+            <p className="text-red-300 font-semibold">
               🛠️ Preise auf Anfrage – alles individuell. Klar und transparent.
             </p>
           </div>
@@ -68,9 +68,9 @@ const ServicesSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-orange-500 transition-colors duration-300">
+            <div key={index} className="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-red-500 transition-colors duration-300">
               <div className="flex items-start gap-4 mb-6">
-                <service.icon className="w-12 h-12 text-orange-500 flex-shrink-0 mt-1" />
+                <service.icon className="w-12 h-12 text-red-500 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                   <p className="text-gray-300">{service.description}</p>
@@ -80,7 +80,7 @@ const ServicesSection = () => {
               <ul className="space-y-3">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}

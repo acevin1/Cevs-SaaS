@@ -33,7 +33,7 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            Lass uns über dein <span className="text-orange-500">Projekt</span> sprechen
+            Lass uns über dein <span className="text-red-500">Projekt</span> sprechen
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Ich antworte dir innerhalb von 24h – versprochen.
@@ -47,22 +47,22 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold mb-6">Direkt kontaktieren</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-orange-500" />
+                  <Mail className="w-6 h-6 text-red-500" />
                   <span className="text-lg">max.mueller@webdev-pro.de</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Phone className="w-6 h-6 text-orange-500" />
+                  <Phone className="w-6 h-6 text-red-500" />
                   <span className="text-lg">+49 123 456 7890</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <MessageCircle className="w-6 h-6 text-orange-500" />
+                  <MessageCircle className="w-6 h-6 text-red-500" />
                   <span className="text-lg">WhatsApp Business verfügbar</span>
                 </div>
               </div>
             </div>
 
             <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h4 className="text-xl font-bold mb-4 text-orange-500">Warum mit mir arbeiten?</h4>
+              <h4 className="text-xl font-bold mb-4 text-red-500">Warum mit mir arbeiten?</h4>
               <ul className="space-y-3 text-gray-300">
                 <li>✓ Kostenlose Erstberatung (30 Min.)</li>
                 <li>✓ Transparente Preisgestaltung</li>
@@ -86,7 +86,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   placeholder="Dein Name"
                 />
               </div>
@@ -102,7 +102,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   placeholder="deine@email.de"
                 />
               </div>
@@ -116,7 +116,7 @@ const ContactSection = () => {
                   name="topic"
                   value={formData.topic}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 >
                   <option value="">Bitte wählen...</option>
                   <option value="website">Website-Erstellung</option>
@@ -138,7 +138,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   placeholder="Erzähl mir von deinem Projekt..."
                 />
               </div>
@@ -150,7 +150,7 @@ const ContactSection = () => {
                   name="callback"
                   checked={formData.callback}
                   onChange={handleChange}
-                  className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
+                  className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
                 />
                 <label htmlFor="callback" className="text-sm">
                   Ich wünsche einen Rückruf
@@ -159,7 +159,7 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                className="w-full bg-orange-600 text-white py-4 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-300 flex items-center justify-center gap-2 group"
+                className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 flex items-center justify-center gap-2 group"
               >
                 Nachricht senden
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
