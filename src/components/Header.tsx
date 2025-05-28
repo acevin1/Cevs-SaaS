@@ -16,12 +16,12 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-gray-900">
+        <div className="flex justify-between items-center md:justify-center md:relative">
+          <div className="text-2xl font-bold text-gray-900 md:absolute md:left-0">
             WebDev Pro
           </div>
           
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           <nav className="hidden md:flex space-x-8">
             <button 
               onClick={() => scrollToSection('home')}

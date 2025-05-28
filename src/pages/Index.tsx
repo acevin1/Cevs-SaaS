@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServicesOverview from '@/components/ServicesOverview';
@@ -8,10 +9,18 @@ import ResultsSection from '@/components/ResultsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import DynamicBackground from '@/components/DynamicBackground';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const Index = () => {
+  const [currentLanguage, setCurrentLanguage] = useState<'de' | 'en'>('de');
+
+  const handleLanguageSelect = (language: 'de' | 'en') => {
+    setCurrentLanguage(language);
+  };
+
   return (
     <div className="min-h-screen relative">
+      <LanguageSelector onLanguageSelect={handleLanguageSelect} />
       <DynamicBackground />
       <div className="relative z-10">
         <Header />
@@ -21,7 +30,10 @@ const Index = () => {
         <ServicesSection />
         <ResultsSection />
         <ContactSection />
-        <Footer />
+        <Footer 
+          currentLanguage={currentLanguage} 
+          onLanguageChange={handleLanguageSelect}
+        />
       </div>
     </div>
   );
