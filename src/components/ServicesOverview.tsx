@@ -1,28 +1,64 @@
 
 import { Monitor, MapPin, Instagram, TrendingUp } from 'lucide-react';
 
-const ServicesOverview = () => {
-  const services = [
-    {
-      icon: Monitor,
-      title: "Website-Erstellung",
-      description: "Individuelle Websites für Einzelunternehmer und kleine Unternehmen – keine Baukastensysteme."
+interface ServicesOverviewProps {
+  currentLanguage: 'de' | 'en';
+}
+
+const ServicesOverview = ({ currentLanguage }: ServicesOverviewProps) => {
+  const content = {
+    de: {
+      title: "Was ich für dich tun kann",
+      subtitle: "Individuelle Lösungen für deinen digitalen Erfolg – alles aus einer Hand.",
+      services: [
+        {
+          title: "Website-Erstellung",
+          description: "Individuelle Websites für Einzelunternehmer und kleine Unternehmen – keine Baukastensysteme."
+        },
+        {
+          title: "Google-Einträge",
+          description: "Optimiere deine lokale Sichtbarkeit mit professionellen Google Business Profilen."
+        },
+        {
+          title: "Social-Media-Beratung",
+          description: "Instagram-Strategien und Content-Tipps für mehr Reichweite und Engagement."
+        },
+        {
+          title: "Trendanalysen & AI",
+          description: "Nutze modernste AI-Tools für bessere Sichtbarkeit und smarte Content-Strategien."
+        }
+      ]
     },
-    {
-      icon: MapPin,
-      title: "Google-Einträge",
-      description: "Optimiere deine lokale Sichtbarkeit mit professionellen Google Business Profilen."
-    },
-    {
-      icon: Instagram,
-      title: "Social-Media-Beratung",
-      description: "Instagram-Strategien und Content-Tipps für mehr Reichweite und Engagement."
-    },
-    {
-      icon: TrendingUp,
-      title: "Trendanalysen & AI",
-      description: "Nutze modernste AI-Tools für bessere Sichtbarkeit und smarte Content-Strategien."
+    en: {
+      title: "What I can do for you",
+      subtitle: "Individual solutions for your digital success – everything from one source.",
+      services: [
+        {
+          title: "Website Creation",
+          description: "Custom websites for solo entrepreneurs and small businesses – no template systems."
+        },
+        {
+          title: "Google Listings",
+          description: "Optimize your local visibility with professional Google Business profiles."
+        },
+        {
+          title: "Social Media Consulting",
+          description: "Instagram strategies and content tips for more reach and engagement."
+        },
+        {
+          title: "Trend Analysis & AI",
+          description: "Use cutting-edge AI tools for better visibility and smart content strategies."
+        }
+      ]
     }
+  };
+
+  const t = content[currentLanguage];
+  const services = [
+    { icon: Monitor, ...t.services[0] },
+    { icon: MapPin, ...t.services[1] },
+    { icon: Instagram, ...t.services[2] },
+    { icon: TrendingUp, ...t.services[3] }
   ];
 
   return (
@@ -30,10 +66,10 @@ const ServicesOverview = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Was ich für dich tun kann
+            {t.title}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Individuelle Lösungen für deinen digitalen Erfolg – alles aus einer Hand.
+            {t.subtitle}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mt-4"></div>
         </div>

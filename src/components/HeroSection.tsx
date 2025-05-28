@@ -3,8 +3,47 @@ import { ArrowRight, Upload } from 'lucide-react';
 import { useState } from 'react';
 import DynamicBackground from './DynamicBackground';
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  currentLanguage: 'de' | 'en';
+}
+
+const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  const content = {
+    de: {
+      title: "Kein Schnickschnack.",
+      subtitle: "Qualität",
+      description: "Hi, ich bin Max Müller – Webentwickler und Digitalberater. Seit 2,5 Jahren helfe ich lokalen Unternehmen dabei, digital sichtbar zu werden.",
+      callout: "Du willst digital durchstarten, aber hast keinen Plan von Websites? Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.",
+      button: "Erzähl mir von deinem Projekt",
+      upload: "Dein Profilbild",
+      uploadText: "Klicke zum Hochladen",
+      stats: {
+        views: "Aufrufe",
+        years: "Jahre", 
+        honest: "Ehrlich",
+        quality: "Qualität"
+      }
+    },
+    en: {
+      title: "No Nonsense.",
+      subtitle: "Quality",
+      description: "Hi, I'm Max Müller – web developer and digital consultant. For 2.5 years I've been helping local businesses become digitally visible.",
+      callout: "You want to go digital but have no idea about websites? I listen and develop a solution with you that works.",
+      button: "Tell me about your project",
+      upload: "Your Profile Picture",
+      uploadText: "Click to upload",
+      stats: {
+        views: "Views",
+        years: "Years",
+        honest: "Honest", 
+        quality: "Quality"
+      }
+    }
+  };
+
+  const t = content[currentLanguage];
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -47,8 +86,8 @@ const HeroSection = () => {
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
                       <div className="text-center text-white">
                         <Upload size={48} className="mx-auto mb-4" />
-                        <p className="text-lg font-semibold">Dein Profilbild</p>
-                        <p className="text-sm text-gray-300">Klicke zum Hochladen</p>
+                        <p className="text-lg font-semibold">{t.upload}</p>
+                        <p className="text-sm text-gray-300">{t.uploadText}</p>
                       </div>
                     </div>
                   )}
@@ -69,25 +108,24 @@ const HeroSection = () => {
             <div className="w-full lg:w-2/3 text-center lg:text-left space-y-8 lg:space-y-12">
               <div className="space-y-6 lg:space-y-8 animate-fade-in">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
-                  Kein Schnickschnack.
+                  {t.title}
                   <br />
                   <span className="text-red-500 relative">
-                    Qualität
+                    {t.subtitle}
                     <div className="absolute -bottom-2 left-0 w-full h-1 bg-red-500 animate-slide-in-right"></div>
                   </span>
                 </h1>
                 
                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed animate-fade-in delay-300">
-                  Hi, ich bin <span className="text-white font-semibold">Max Müller</span> – Webentwickler und Digitalberater. 
-                  Seit 2,5 Jahren helfe ich lokalen Unternehmen dabei, digital sichtbar zu werden.
+                  {t.description}
                 </p>
               </div>
 
               <div className="space-y-6 lg:space-y-8 animate-fade-in delay-500">
                 <div className="bg-black/50 backdrop-blur-sm border border-red-500/20 rounded-2xl p-6 lg:p-8">
                   <p className="text-base lg:text-lg text-gray-200 leading-relaxed">
-                    Du willst digital durchstarten, aber hast keinen Plan von Websites? 
-                    <span className="text-red-400 font-medium"> Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.</span>
+                    {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[0]}
+                    <span className="text-red-400 font-medium"> {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[1] || (currentLanguage === 'en' ? 'I listen and develop a solution with you that works.' : 'Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')}</span>
                   </p>
                 </div>
 
@@ -95,7 +133,7 @@ const HeroSection = () => {
                   onClick={scrollToContact}
                   className="bg-red-600 hover:bg-red-700 text-white px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-red-500/25 transform hover:scale-105"
                 >
-                  Erzähl mir von deinem Projekt
+                  {t.button}
                   <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
                 </button>
               </div>
@@ -104,19 +142,19 @@ const HeroSection = () => {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 animate-fade-in delay-700">
                 <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
                   <div className="text-xl lg:text-2xl font-bold text-red-500">30M+</div>
-                  <div className="text-xs lg:text-sm text-gray-400">Aufrufe</div>
+                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.views}</div>
                 </div>
                 <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
                   <div className="text-xl lg:text-2xl font-bold text-red-500">2.5</div>
-                  <div className="text-xs lg:text-sm text-gray-400">Jahre</div>
+                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.years}</div>
                 </div>
                 <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
                   <div className="text-xl lg:text-2xl font-bold text-red-500">100%</div>
-                  <div className="text-xs lg:text-sm text-gray-400">Ehrlich</div>
+                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.honest}</div>
                 </div>
                 <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
                   <div className="text-xl lg:text-2xl font-bold text-red-500">∞</div>
-                  <div className="text-xs lg:text-sm text-gray-400">Qualität</div>
+                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.quality}</div>
                 </div>
               </div>
             </div>

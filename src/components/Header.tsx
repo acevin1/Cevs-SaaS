@@ -2,8 +2,31 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Header = () => {
+interface HeaderProps {
+  currentLanguage: 'de' | 'en';
+}
+
+const Header = ({ currentLanguage }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const content = {
+    de: {
+      home: "Home",
+      about: "Über mich",
+      services: "Leistungen",
+      results: "Ergebnisse",
+      contact: "Kontakt"
+    },
+    en: {
+      home: "Home",
+      about: "About me",
+      services: "Services",
+      results: "Results",
+      contact: "Contact"
+    }
+  };
+
+  const t = content[currentLanguage];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -27,31 +50,31 @@ const Header = () => {
               onClick={() => scrollToSection('home')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Home
+              {t.home}
             </button>
             <button 
               onClick={() => scrollToSection('about')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Über mich
+              {t.about}
             </button>
             <button 
               onClick={() => scrollToSection('services')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Leistungen
+              {t.services}
             </button>
             <button 
               onClick={() => scrollToSection('results')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Ergebnisse
+              {t.results}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
             >
-              Kontakt
+              {t.contact}
             </button>
           </nav>
 
@@ -72,31 +95,31 @@ const Header = () => {
                 onClick={() => scrollToSection('home')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Home
+                {t.home}
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Über mich
+                {t.about}
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Leistungen
+                {t.services}
               </button>
               <button 
                 onClick={() => scrollToSection('results')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Ergebnisse
+                {t.results}
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors text-left"
               >
-                Kontakt
+                {t.contact}
               </button>
             </div>
           </nav>

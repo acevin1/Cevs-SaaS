@@ -23,11 +23,11 @@ const Index = () => {
       <LanguageSelector onLanguageSelect={handleLanguageSelect} />
       <DynamicBackground />
       <div className="relative z-10">
-        <Header />
-        <HeroSection />
-        <ServicesOverview />
+        <Header currentLanguage={currentLanguage} />
+        <HeroSection currentLanguage={currentLanguage} />
+        <ServicesOverview currentLanguage={currentLanguage} />
         <AboutSection />
-        <ServicesSection />
+        <ServicesSection currentLanguage={currentLanguage} />
         <ResultsSection />
         <ContactSection />
         <Footer 
