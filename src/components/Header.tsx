@@ -2,8 +2,31 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Header = () => {
+interface HeaderProps {
+  currentLanguage: 'de' | 'en';
+}
+
+const Header = ({ currentLanguage }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const content = {
+    de: {
+      home: "Home",
+      about: "Über mich",
+      services: "Leistungen",
+      results: "Ergebnisse",
+      contact: "Kontakt"
+    },
+    en: {
+      home: "Home",
+      about: "About me",
+      services: "Services",
+      results: "Results",
+      contact: "Contact"
+    }
+  };
+
+  const t = content[currentLanguage];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -16,42 +39,42 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center md:justify-center md:relative">
-          <div className="text-2xl font-bold text-gray-900 md:absolute md:left-0">
+        <div className="flex justify-between items-center">
+          <div className="text-2xl font-bold text-gray-900">
             WebDev Pro
           </div>
           
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex space-x-8">
+          {/* Desktop Navigation - Properly Centered */}
+          <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Home
+              {t.home}
             </button>
             <button 
               onClick={() => scrollToSection('about')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Über mich
+              {t.about}
             </button>
             <button 
               onClick={() => scrollToSection('services')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Leistungen
+              {t.services}
             </button>
             <button 
               onClick={() => scrollToSection('results')}
               className="text-gray-700 hover:text-orange-600 transition-colors"
             >
-              Ergebnisse
+              {t.results}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
             >
-              Kontakt
+              {t.contact}
             </button>
           </nav>
 
@@ -72,31 +95,31 @@ const Header = () => {
                 onClick={() => scrollToSection('home')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Home
+                {t.home}
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Über mich
+                {t.about}
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Leistungen
+                {t.services}
               </button>
               <button 
                 onClick={() => scrollToSection('results')}
                 className="text-gray-700 hover:text-orange-600 transition-colors text-left"
               >
-                Ergebnisse
+                {t.results}
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors text-left"
               >
-                Kontakt
+                {t.contact}
               </button>
             </div>
           </nav>
