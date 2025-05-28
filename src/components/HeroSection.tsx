@@ -36,30 +36,33 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative z-10">
-      <div className="container mx-auto px-4">
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+      
+      <div className="container mx-auto px-4 relative z-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <p className="text-lg text-gray-600 font-medium">
+              <p className="text-lg text-gray-800 font-medium">
                 {t.greeting}
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight drop-shadow-sm">
                 {t.name}
               </h1>
-              <h2 className="text-xl md:text-2xl lg:text-3xl text-orange-600 font-semibold">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-orange-600 font-semibold drop-shadow-sm">
                 {t.title}
               </h2>
             </div>
             
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-gray-800 leading-relaxed max-w-2xl mx-auto lg:mx-0 drop-shadow-sm">
               {t.description}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
                 onClick={scrollToContact}
-                className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg"
               >
                 {t.cta}
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
