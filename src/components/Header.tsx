@@ -44,38 +44,40 @@ const Header = ({ currentLanguage }: HeaderProps) => {
             WebDev Pro
           </div>
           
-          {/* Desktop Navigation - Properly Centered */}
-          <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
-            >
-              {t.home}
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
-            >
-              {t.about}
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
-            >
-              {t.services}
-            </button>
-            <button 
-              onClick={() => scrollToSection('results')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
-            >
-              {t.results}
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
-            >
-              {t.contact}
-            </button>
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex justify-center flex-1">
+            <div className="flex space-x-8">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="text-gray-700 hover:text-orange-600 transition-colors"
+              >
+                {t.home}
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-gray-700 hover:text-orange-600 transition-colors"
+              >
+                {t.about}
+              </button>
+              <button 
+                onClick={() => scrollToSection('services')}
+                className="text-gray-700 hover:text-orange-600 transition-colors"
+              >
+                {t.services}
+              </button>
+              <button 
+                onClick={() => scrollToSection('results')}
+                className="text-gray-700 hover:text-orange-600 transition-colors"
+              >
+                {t.results}
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
+              >
+                {t.contact}
+              </button>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}

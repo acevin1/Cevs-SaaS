@@ -70,7 +70,7 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
           {/* Image Placeholder */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-full bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-300 flex items-center justify-center shadow-2xl">
+              <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-full bg-gradient-to-br from-orange-100 to-orange-200 border-4 border-orange-300 flex items-center justify-center shadow-2xl overflow-hidden">
                 <div className="text-center text-gray-600">
                   <div className="w-24 h-24 mx-auto mb-4 bg-orange-300 rounded-full flex items-center justify-center">
                     <svg className="w-12 h-12 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
@@ -78,7 +78,9 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
                     </svg>
                   </div>
                   <p className="text-sm font-medium">{t.imageAlt}</p>
-                  <p className="text-xs text-gray-500 mt-1">Foto hier einfügen</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {currentLanguage === 'de' ? 'Foto hier einfügen' : 'Insert photo here'}
+                  </p>
                 </div>
               </div>
               {/* Decorative elements */}
