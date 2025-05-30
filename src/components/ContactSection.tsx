@@ -2,7 +2,11 @@
 import { useState } from 'react';
 import { Mail, Phone, MessageCircle, Send } from 'lucide-react';
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  currentLanguage: 'de' | 'en';
+}
+
+const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,10 +15,83 @@ const ContactSection = () => {
     callback: false
   });
 
+  const content = {
+    de: {
+      title: "Lass uns über dein ",
+      titleHighlight: "Projekt",
+      titleEnd: " sprechen",
+      subtitle: "Ich antworte dir innerhalb von 24h – versprochen.",
+      contactDirect: "Direkt kontaktieren",
+      whyWorkWith: "Warum mit mir arbeiten?",
+      benefits: [
+        "✓ Kostenlose Erstberatung (30 Min.)",
+        "✓ Transparente Preisgestaltung",
+        "✓ Schnelle Kommunikation",
+        "✓ Nachbetreuung inklusive"
+      ],
+      form: {
+        name: "Name *",
+        email: "E-Mail *",
+        topic: "Thema",
+        message: "Nachricht *",
+        callback: "Ich wünsche einen Rückruf",
+        submit: "Nachricht senden",
+        namePlaceholder: "Dein Name",
+        emailPlaceholder: "deine@email.de",
+        messagePlaceholder: "Erzähl mir von deinem Projekt...",
+        selectPlaceholder: "Bitte wählen...",
+        topics: {
+          website: "Website-Erstellung",
+          socialMedia: "Social Media",
+          google: "Google-Eintrag",
+          consulting: "Beratung",
+          general: "Allgemein"
+        }
+      },
+      successMessage: "Vielen Dank für deine Nachricht! Ich melde mich innerhalb von 24h bei dir."
+    },
+    en: {
+      title: "Let's talk about your ",
+      titleHighlight: "project",
+      titleEnd: "",
+      subtitle: "I'll respond within 24h – guaranteed.",
+      contactDirect: "Contact directly",
+      whyWorkWith: "Why work with me?",
+      benefits: [
+        "✓ Free initial consultation (30 min.)",
+        "✓ Transparent pricing",
+        "✓ Fast communication",
+        "✓ Follow-up support included"
+      ],
+      form: {
+        name: "Name *",
+        email: "Email *",
+        topic: "Topic",
+        message: "Message *",
+        callback: "I would like a callback",
+        submit: "Send message",
+        namePlaceholder: "Your name",
+        emailPlaceholder: "your@email.com",
+        messagePlaceholder: "Tell me about your project...",
+        selectPlaceholder: "Please select...",
+        topics: {
+          website: "Website creation",
+          socialMedia: "Social Media",
+          google: "Google listing",
+          consulting: "Consulting",
+          general: "General"
+        }
+      },
+      successMessage: "Thank you for your message! I'll get back to you within 24h."
+    }
+  };
+
+  const t = content[currentLanguage];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Vielen Dank für deine Nachricht! Ich melde mich innerhalb von 24h bei dir.');
+    alert(t.successMessage);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -32,17 +109,17 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">
-            Lass uns über dein <span className="text-red-500">Projekt</span> sprechen
+            {t.title}<span className="text-red-500">{t.titleHighlight}</span>{t.titleEnd}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ich antworte dir innerhalb von 24h – versprochen.
+            {t.subtitle}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Direkt kontaktieren</h3>
+              <h3 className="text-2xl font-bold mb-6 text-white">{t.contactDirect}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="w-6 h-6 text-red-500" />
@@ -60,12 +137,11 @@ const ContactSection = () => {
             </div>
 
             <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h4 className="text-xl font-bold mb-4 text-red-500">Warum mit mir arbeiten?</h4>
+              <h4 className="text-xl font-bold mb-4 text-red-500">{t.whyWorkWith}</h4>
               <ul className="space-y-3 text-gray-300">
-                <li>✓ Kostenlose Erstberatung (30 Min.)</li>
-                <li>✓ Transparente Preisgestaltung</li>
-                <li>✓ Schnelle Kommunikation</li>
-                <li>✓ Nachbetreuung inklusive</li>
+                {t.benefits.map((benefit, index) => (
+                  <li key={index}>{benefit}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -74,7 +150,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
-                  Name *
+                  {t.form.name}
                 </label>
                 <input
                   type="text"
@@ -84,13 +160,13 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
-                  placeholder="Dein Name"
+                  placeholder={t.form.namePlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
-                  E-Mail *
+                  {t.form.email}
                 </label>
                 <input
                   type="email"
@@ -100,13 +176,13 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
-                  placeholder="deine@email.de"
+                  placeholder={t.form.emailPlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="topic" className="block text-sm font-semibold mb-2 text-gray-900">
-                  Thema
+                  {t.form.topic}
                 </label>
                 <select
                   id="topic"
@@ -115,18 +191,18 @@ const ContactSection = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
                 >
-                  <option value="">Bitte wählen...</option>
-                  <option value="website">Website-Erstellung</option>
-                  <option value="social-media">Social Media</option>
-                  <option value="google">Google-Eintrag</option>
-                  <option value="consulting">Beratung</option>
-                  <option value="general">Allgemein</option>
+                  <option value="">{t.form.selectPlaceholder}</option>
+                  <option value="website">{t.form.topics.website}</option>
+                  <option value="social-media">{t.form.topics.socialMedia}</option>
+                  <option value="google">{t.form.topics.google}</option>
+                  <option value="consulting">{t.form.topics.consulting}</option>
+                  <option value="general">{t.form.topics.general}</option>
                 </select>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-900">
-                  Nachricht *
+                  {t.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -136,7 +212,7 @@ const ContactSection = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
-                  placeholder="Erzähl mir von deinem Projekt..."
+                  placeholder={t.form.messagePlaceholder}
                 />
               </div>
 
@@ -150,7 +226,7 @@ const ContactSection = () => {
                   className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
                 />
                 <label htmlFor="callback" className="text-sm text-gray-900">
-                  Ich wünsche einen Rückruf
+                  {t.form.callback}
                 </label>
               </div>
 
@@ -158,7 +234,7 @@ const ContactSection = () => {
                 type="submit"
                 className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 flex items-center justify-center gap-2 group"
               >
-                Nachricht senden
+                {t.form.submit}
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>

@@ -26,10 +26,10 @@ const Index = () => {
         <Header currentLanguage={currentLanguage} />
         <HeroSection currentLanguage={currentLanguage} />
         <ServicesOverview currentLanguage={currentLanguage} />
-        <AboutSection />
+        <AboutSection currentLanguage={currentLanguage} />
         <ServicesSection currentLanguage={currentLanguage} />
-        <ResultsSection />
-        <ContactSection />
+        <ResultsSection currentLanguage={currentLanguage} />
+        <ContactSection currentLanguage={currentLanguage} />
         <Footer 
           currentLanguage={currentLanguage} 
           onLanguageChange={handleLanguageSelect}
