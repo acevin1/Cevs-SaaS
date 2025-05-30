@@ -22,6 +22,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
       titleEnd: " sprechen",
       subtitle: "Ich antworte dir innerhalb von 24h – versprochen.",
       contactDirect: "Direkt kontaktieren",
+      whatsappText: "WhatsApp Business verfügbar",
       whyWorkWith: "Warum mit mir arbeiten?",
       benefits: [
         "✓ Kostenlose Erstberatung (30 Min.)",
@@ -56,6 +57,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
       titleEnd: "",
       subtitle: "I'll respond within 24h – guaranteed.",
       contactDirect: "Contact directly",
+      whatsappText: "WhatsApp Business available",
       whyWorkWith: "Why work with me?",
       benefits: [
         "✓ Free initial consultation (30 min.)",
@@ -131,7 +133,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                 </div>
                 <div className="flex items-center gap-4">
                   <MessageCircle className="w-6 h-6 text-red-500" />
-                  <span className="text-lg text-gray-300">WhatsApp Business verfügbar</span>
+                  <span className="text-lg text-gray-300">{t.whatsappText}</span>
                 </div>
               </div>
             </div>
