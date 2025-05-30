@@ -15,7 +15,10 @@ const Index = () => {
   const [currentLanguage, setCurrentLanguage] = useState<'de' | 'en'>('de');
 
   const handleLanguageSelect = (language: 'de' | 'en') => {
+    console.log('Language selected:', language);
     setCurrentLanguage(language);
+    // Save to localStorage
+    localStorage.setItem('selectedLanguage', language);
   };
 
   return (

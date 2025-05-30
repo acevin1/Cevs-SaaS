@@ -37,6 +37,11 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
     }
   };
 
+  const handleLanguageChange = (language: 'de' | 'en') => {
+    console.log('Language change requested:', language);
+    onLanguageChange(language);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
       <div className="container mx-auto px-4 py-4">
@@ -46,7 +51,7 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
             <Globe className="w-5 h-5 text-gray-600" />
             <div className="flex gap-1">
               <button 
-                onClick={() => onLanguageChange('de')}
+                onClick={() => handleLanguageChange('de')}
                 className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
                   currentLanguage === 'de' 
                     ? 'bg-orange-600 text-white' 
@@ -56,7 +61,7 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
                 DE
               </button>
               <button 
-                onClick={() => onLanguageChange('en')}
+                onClick={() => handleLanguageChange('en')}
                 className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
                   currentLanguage === 'en' 
                     ? 'bg-orange-600 text-white' 
