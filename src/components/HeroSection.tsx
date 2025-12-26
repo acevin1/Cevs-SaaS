@@ -1,15 +1,13 @@
-
 import { ArrowRight, Upload } from 'lucide-react';
 import { useState } from 'react';
 import DynamicBackground from './DynamicBackground';
-
 interface HeroSectionProps {
   currentLanguage: 'de' | 'en';
 }
-
-const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
+const HeroSection = ({
+  currentLanguage
+}: HeroSectionProps) => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
-
   const content = {
     de: {
       title: "Kein Schnickschnack.",
@@ -21,7 +19,7 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
       uploadText: "Klicke zum Hochladen",
       stats: {
         views: "Aufrufe",
-        years: "Jahre", 
+        years: "Jahre",
         honest: "Ehrlich",
         quality: "Qualität"
       }
@@ -37,34 +35,31 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
       stats: {
         views: "Views",
         years: "Years",
-        honest: "Honest", 
+        honest: "Honest",
         quality: "Quality"
       }
     }
   };
-
   const t = content[currentLanguage];
-
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         setProfileImage(e.target?.result as string);
       };
       reader.readAsDataURL(file);
     }
   };
-
-  return (
-    <section id="home" className="min-h-screen relative overflow-hidden pt-20">
+  return <section id="home" className="min-h-screen relative overflow-hidden pt-20">
       <DynamicBackground />
       
       <div className="relative z-10 container mx-auto px-4 py-8 lg:py-20">
@@ -76,28 +71,15 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
             <div className="w-full lg:w-1/3 flex justify-center">
               <div className="relative group">
                 <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gold shadow-2xl bg-secondary">
-                  {profileImage ? (
-                    <img 
-                      src={profileImage} 
-                      alt="Max Müller" 
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
+                  {profileImage ? <img src={profileImage} alt="Max Müller" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
                       <div className="text-center text-foreground">
                         <Upload size={48} className="mx-auto mb-4 text-silver" />
                         <p className="text-lg font-semibold">{t.upload}</p>
                         <p className="text-sm text-muted-foreground">{t.uploadText}</p>
                       </div>
-                    </div>
-                  )}
+                    </div>}
                 </div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer rounded-full"
-                />
+                <input type="file" accept="image/*" onChange={handleImageUpload} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer rounded-full" />
                 <div className="absolute inset-0 rounded-full bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Upload className="text-foreground" size={32} />
                 </div>
@@ -116,7 +98,7 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
                   </span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed animate-fade-in delay-300">
+                <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed animate-fade-in delay-300 text-white">
                   {t.description}
                 </p>
               </div>
@@ -129,10 +111,7 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
                   </p>
                 </div>
 
-                <button 
-                  onClick={scrollToContact}
-                  className="bg-gold hover:bg-gold-light text-foreground px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105"
-                >
+                <button onClick={scrollToContact} className="bg-gold hover:bg-gold-light text-foreground px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105">
                   {t.button}
                   <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
                 </button>
@@ -161,8 +140,6 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
