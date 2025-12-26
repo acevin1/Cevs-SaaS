@@ -75,7 +75,7 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
             {/* Profile Image Section */}
             <div className="w-full lg:w-1/3 flex justify-center">
               <div className="relative group">
-                <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-red-500 shadow-2xl bg-gray-800">
+                <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gold shadow-2xl bg-secondary">
                   {profileImage ? (
                     <img 
                       src={profileImage} 
@@ -83,11 +83,11 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
-                      <div className="text-center text-white">
-                        <Upload size={48} className="mx-auto mb-4" />
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
+                      <div className="text-center text-foreground">
+                        <Upload size={48} className="mx-auto mb-4 text-silver" />
                         <p className="text-lg font-semibold">{t.upload}</p>
-                        <p className="text-sm text-gray-300">{t.uploadText}</p>
+                        <p className="text-sm text-muted-foreground">{t.uploadText}</p>
                       </div>
                     </div>
                   )}
@@ -99,7 +99,7 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer rounded-full"
                 />
                 <div className="absolute inset-0 rounded-full bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Upload className="text-white" size={32} />
+                  <Upload className="text-foreground" size={32} />
                 </div>
               </div>
             </div>
@@ -107,54 +107,54 @@ const HeroSection = ({ currentLanguage }: HeroSectionProps) => {
             {/* Content Section */}
             <div className="w-full lg:w-2/3 text-center lg:text-left space-y-8 lg:space-y-12">
               <div className="space-y-6 lg:space-y-8 animate-fade-in">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-foreground">
                   {t.title}
                   <br />
-                  <span className="text-red-500 relative">
+                  <span className="text-gold-light relative">
                     {t.subtitle}
-                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-red-500 animate-slide-in-right"></div>
+                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-gold animate-slide-in-right"></div>
                   </span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed animate-fade-in delay-300">
+                <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed animate-fade-in delay-300">
                   {t.description}
                 </p>
               </div>
 
               <div className="space-y-6 lg:space-y-8 animate-fade-in delay-500">
-                <div className="bg-black/50 backdrop-blur-sm border border-red-500/20 rounded-2xl p-6 lg:p-8">
-                  <p className="text-base lg:text-lg text-gray-200 leading-relaxed">
+                <div className="bg-background/50 backdrop-blur-sm border border-gold/20 rounded-2xl p-6 lg:p-8">
+                  <p className="text-base lg:text-lg text-silver leading-relaxed">
                     {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[0]}
-                    <span className="text-red-400 font-medium"> {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[1] || (currentLanguage === 'en' ? 'I listen and develop a solution with you that works.' : 'Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')}</span>
+                    <span className="text-gold-light font-medium"> {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[1] || (currentLanguage === 'en' ? 'I listen and develop a solution with you that works.' : 'Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')}</span>
                   </p>
                 </div>
 
                 <button 
                   onClick={scrollToContact}
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-red-500/25 transform hover:scale-105"
+                  className="bg-gold hover:bg-gold-light text-foreground px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105"
                 >
                   {t.button}
                   <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
                 </button>
               </div>
 
-              {/* Stats */}
+              {/* Stats - Key Facts in Dark Gold */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 animate-fade-in delay-700">
-                <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-red-500">30M+</div>
-                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.views}</div>
+                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-xl lg:text-2xl font-bold text-gold-light">30M+</div>
+                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.views}</div>
                 </div>
-                <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-red-500">2.5</div>
-                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.years}</div>
+                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-xl lg:text-2xl font-bold text-gold-light">2.5</div>
+                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.years}</div>
                 </div>
-                <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-red-500">100%</div>
-                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.honest}</div>
+                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-xl lg:text-2xl font-bold text-gold-light">100%</div>
+                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.honest}</div>
                 </div>
-                <div className="text-center p-3 lg:p-4 bg-black/30 backdrop-blur-sm rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-red-500">∞</div>
-                  <div className="text-xs lg:text-sm text-gray-400">{t.stats.quality}</div>
+                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-xl lg:text-2xl font-bold text-gold-light">∞</div>
+                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.quality}</div>
                 </div>
               </div>
             </div>

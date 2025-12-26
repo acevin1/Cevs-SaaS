@@ -43,38 +43,38 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
   const t = content[currentLanguage];
 
   return (
-    <footer className="bg-gray-800 text-white py-12 relative z-10">
+    <footer className="bg-card text-foreground py-12 relative z-10 border-t border-border">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand & Contact */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white">WebDev Pro</h3>
-            <p className="text-gray-300">
+            <h3 className="text-2xl font-bold text-foreground">WebDev Pro</h3>
+            <p className="text-muted-foreground">
               {t.description}
             </p>
-            <div className="flex items-center gap-2 text-gray-300">
-              <Mail size={16} />
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Mail size={16} className="text-silver" />
               <span>max.mueller@webdev-pro.de</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">{t.quickLinks}</h4>
+            <h4 className="text-lg font-semibold text-foreground">{t.quickLinks}</h4>
             <div className="space-y-2">
-              <a href="#home" className="block text-gray-300 hover:text-red-500 transition-colors">
+              <a href="#home" className="block text-muted-foreground hover:text-gold-light transition-colors">
                 {t.home}
               </a>
-              <a href="#about" className="block text-gray-300 hover:text-red-500 transition-colors">
+              <a href="#about" className="block text-muted-foreground hover:text-gold-light transition-colors">
                 {t.about}
               </a>
-              <a href="#services" className="block text-gray-300 hover:text-red-500 transition-colors">
+              <a href="#services" className="block text-muted-foreground hover:text-gold-light transition-colors">
                 {t.services}
               </a>
-              <a href="#results" className="block text-gray-300 hover:text-red-500 transition-colors">
+              <a href="#results" className="block text-muted-foreground hover:text-gold-light transition-colors">
                 {t.results}
               </a>
-              <a href="#contact" className="block text-gray-300 hover:text-red-500 transition-colors">
+              <a href="#contact" className="block text-muted-foreground hover:text-gold-light transition-colors">
                 {t.contact}
               </a>
             </div>
@@ -82,27 +82,27 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
 
           {/* Social & Language */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">{t.followMe}</h4>
+            <h4 className="text-lg font-semibold text-foreground">{t.followMe}</h4>
             <div className="flex gap-4">
               <a 
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gray-700 p-3 rounded-lg hover:bg-red-600 transition-colors"
+                className="bg-secondary p-3 rounded-lg hover:bg-gold transition-colors border border-border"
               >
-                <Instagram size={20} className="text-white" />
+                <Instagram size={20} className="text-silver" />
               </a>
             </div>
             
             <div className="pt-4">
-              <h4 className="text-lg font-semibold mb-2 text-white">{t.language}</h4>
+              <h4 className="text-lg font-semibold mb-2 text-foreground">{t.language}</h4>
               <div className="flex gap-2">
                 <button 
                   onClick={() => onLanguageChange('de')}
                   className={`px-3 py-1 rounded text-sm font-semibold transition-colors ${
                     currentLanguage === 'de' 
-                      ? 'bg-red-600 text-white' 
-                      : 'bg-gray-700 text-white hover:bg-gray-600'
+                      ? 'bg-gold text-foreground' 
+                      : 'bg-secondary text-foreground hover:bg-muted border border-border'
                   }`}
                 >
                   🇩🇪 DE
@@ -111,8 +111,8 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
                   onClick={() => onLanguageChange('en')}
                   className={`px-3 py-1 rounded text-sm font-semibold transition-colors ${
                     currentLanguage === 'en' 
-                      ? 'bg-red-600 text-white' 
-                      : 'bg-gray-700 text-white hover:bg-gray-600'
+                      ? 'bg-gold text-foreground' 
+                      : 'bg-secondary text-foreground hover:bg-muted border border-border'
                   }`}
                 >
                   🇬🇧 EN
@@ -123,15 +123,15 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-300 text-sm">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-muted-foreground text-sm">
             © {currentYear} WebDev Pro. {t.rights}
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-300 hover:text-red-500 transition-colors">
+            <a href="#" className="text-muted-foreground hover:text-gold-light transition-colors">
               {t.imprint}
             </a>
-            <a href="#" className="text-gray-300 hover:text-red-500 transition-colors">
+            <a href="#" className="text-muted-foreground hover:text-gold-light transition-colors">
               {t.privacy}
             </a>
           </div>

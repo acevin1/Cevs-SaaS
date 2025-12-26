@@ -107,13 +107,13 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 text-white relative z-10">
+    <section id="contact" className="py-20 bg-secondary text-foreground relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            {t.title}<span className="text-red-500">{t.titleHighlight}</span>{t.titleEnd}
+          <h2 className="text-4xl font-bold mb-4 text-foreground">
+            {t.title}<span className="text-gold-light">{t.titleHighlight}</span>{t.titleEnd}
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
@@ -121,26 +121,26 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-white">{t.contactDirect}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">{t.contactDirect}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-red-500" />
-                  <span className="text-lg text-gray-300">max.mueller@webdev-pro.de</span>
+                  <Mail className="w-6 h-6 text-silver" />
+                  <span className="text-lg text-muted-foreground">max.mueller@webdev-pro.de</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Phone className="w-6 h-6 text-red-500" />
-                  <span className="text-lg text-gray-300">+49 123 456 7890</span>
+                  <Phone className="w-6 h-6 text-silver" />
+                  <span className="text-lg text-muted-foreground">+49 123 456 7890</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <MessageCircle className="w-6 h-6 text-red-500" />
-                  <span className="text-lg text-gray-300">{t.whatsappText}</span>
+                  <MessageCircle className="w-6 h-6 text-silver" />
+                  <span className="text-lg text-muted-foreground">{t.whatsappText}</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <h4 className="text-xl font-bold mb-4 text-red-500">{t.whyWorkWith}</h4>
-              <ul className="space-y-3 text-gray-300">
+            <div className="bg-card p-6 rounded-xl border border-border">
+              <h4 className="text-xl font-bold mb-4 text-gold-light">{t.whyWorkWith}</h4>
+              <ul className="space-y-3 text-muted-foreground">
                 {t.benefits.map((benefit, index) => (
                   <li key={index}>{benefit}</li>
                 ))}
@@ -148,10 +148,10 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
             </div>
           </div>
 
-          <div className="bg-white text-gray-900 p-8 rounded-2xl shadow-2xl">
+          <div className="bg-card text-foreground p-8 rounded-2xl shadow-2xl border border-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
+                <label htmlFor="name" className="block text-sm font-semibold mb-2 text-foreground">
                   {t.form.name}
                 </label>
                 <input
@@ -161,13 +161,13 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground"
                   placeholder={t.form.namePlaceholder}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
+                <label htmlFor="email" className="block text-sm font-semibold mb-2 text-foreground">
                   {t.form.email}
                 </label>
                 <input
@@ -177,13 +177,13 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground"
                   placeholder={t.form.emailPlaceholder}
                 />
               </div>
 
               <div>
-                <label htmlFor="topic" className="block text-sm font-semibold mb-2 text-gray-900">
+                <label htmlFor="topic" className="block text-sm font-semibold mb-2 text-foreground">
                   {t.form.topic}
                 </label>
                 <select
@@ -191,7 +191,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   name="topic"
                   value={formData.topic}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground"
                 >
                   <option value="">{t.form.selectPlaceholder}</option>
                   <option value="website">{t.form.topics.website}</option>
@@ -203,7 +203,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-900">
+                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-foreground">
                   {t.form.message}
                 </label>
                 <textarea
@@ -213,7 +213,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground"
                   placeholder={t.form.messagePlaceholder}
                 />
               </div>
@@ -225,16 +225,16 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   name="callback"
                   checked={formData.callback}
                   onChange={handleChange}
-                  className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                  className="w-4 h-4 text-gold border-border rounded focus:ring-gold bg-secondary"
                 />
-                <label htmlFor="callback" className="text-sm text-gray-900">
+                <label htmlFor="callback" className="text-sm text-muted-foreground">
                   {t.form.callback}
                 </label>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 flex items-center justify-center gap-2 group"
+                className="w-full bg-gold text-foreground py-4 rounded-lg font-semibold hover:bg-gold-light transition-colors duration-300 flex items-center justify-center gap-2 group"
               >
                 {t.form.submit}
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

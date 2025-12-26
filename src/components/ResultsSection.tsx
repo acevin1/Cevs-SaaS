@@ -90,57 +90,57 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
   const t = content[currentLanguage];
 
   return (
-    <section id="results" className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section id="results" className="py-20 bg-gradient-to-b from-secondary to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            {t.title}<span className="text-red-500 bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">{t.titleHighlight}</span>
+          <h2 className="text-4xl font-bold text-foreground mb-4">
+            {t.title}<span className="text-gold-light bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent">{t.titleHighlight}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t.subtitle}
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mt-4"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-4"></div>
         </div>
 
         {/* Highlight Projekt */}
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl p-8 mb-16 border border-gray-700 hover:border-red-500/50 transition-all duration-500 animate-fade-in delay-300 transform hover:scale-105">
+        <div className="bg-gradient-to-br from-card to-secondary rounded-2xl shadow-xl p-8 mb-16 border border-border hover:border-gold/50 transition-all duration-500 animate-fade-in delay-300 transform hover:scale-105">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <div className="inline-block bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full font-semibold animate-pulse">
+              <div className="inline-block bg-gradient-to-r from-gold to-gold-light text-foreground px-4 py-2 rounded-full font-semibold animate-pulse">
                 {t.highlightProject}
               </div>
-              <h3 className="text-3xl font-bold text-white">
+              <h3 className="text-3xl font-bold text-foreground">
                 {t.projectTitle}
               </h3>
-              <p className="text-lg text-gray-300">
-                {t.projectDescription}<strong className="text-red-500">{t.projectHighlight}</strong>{t.projectEnd}
+              <p className="text-lg text-muted-foreground">
+                {t.projectDescription}<strong className="text-gold-light">{t.projectHighlight}</strong>{t.projectEnd}
               </p>
               
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-4 rounded-lg text-center border border-gray-600 hover:border-red-500/50 transition-all duration-300 transform hover:scale-105">
-                  <TrendingUp className="w-8 h-8 text-red-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-white">30M+</div>
-                  <div className="text-sm text-gray-300">{t.stats.views}</div>
+                <div className="bg-gradient-to-br from-muted to-card p-4 rounded-lg text-center border border-border hover:border-gold/50 transition-all duration-300 transform hover:scale-105">
+                  <TrendingUp className="w-8 h-8 text-silver mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-gold-light">30M+</div>
+                  <div className="text-sm text-muted-foreground">{t.stats.views}</div>
                 </div>
-                <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-4 rounded-lg text-center border border-gray-600 hover:border-red-500/50 transition-all duration-300 transform hover:scale-105">
-                  <Users className="w-8 h-8 text-red-500 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-white">150K+</div>
-                  <div className="text-sm text-gray-300">{t.stats.followers}</div>
+                <div className="bg-gradient-to-br from-muted to-card p-4 rounded-lg text-center border border-border hover:border-gold/50 transition-all duration-300 transform hover:scale-105">
+                  <Users className="w-8 h-8 text-silver mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-gold-light">150K+</div>
+                  <div className="text-sm text-muted-foreground">{t.stats.followers}</div>
                 </div>
               </div>
             </div>
             
             <div className="relative">
-              <div className="w-full h-80 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500 rounded-xl shadow-lg flex items-center justify-center text-white border border-gray-600">
+              <div className="w-full h-80 bg-gradient-to-br from-muted via-secondary to-card rounded-xl shadow-lg flex items-center justify-center text-foreground border border-border">
                 <div className="text-center space-y-4">
-                  <div className="w-16 h-16 bg-red-500 rounded-full mx-auto flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-gold rounded-full mx-auto flex items-center justify-center">
+                    <TrendingUp className="w-8 h-8 text-foreground" />
                   </div>
                   <div className="text-lg font-bold">{t.workspace.title}</div>
-                  <div className="text-sm text-gray-200">{t.workspace.subtitle}</div>
+                  <div className="text-sm text-muted-foreground">{t.workspace.subtitle}</div>
                 </div>
               </div>
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-emerald-500 text-foreground px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
                 {t.liveProject}
               </div>
             </div>
@@ -152,18 +152,18 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
           {t.testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg hover:shadow-red-500/20 hover:shadow-2xl transition-all duration-500 border border-gray-700 hover:border-red-500/50 transform hover:scale-105 animate-fade-in"
+              className="bg-gradient-to-br from-card to-secondary p-6 rounded-xl shadow-lg hover:shadow-gold/20 hover:shadow-2xl transition-all duration-500 border border-border hover:border-gold/50 transform hover:scale-105 animate-fade-in"
               style={{ animationDelay: `${(index + 1) * 200}ms` }}
             >
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-red-500 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-gold-light fill-current" />
                 ))}
               </div>
-              <p className="text-gray-300 mb-6 italic hover:text-white transition-colors duration-300">"{testimonial.text}"</p>
+              <p className="text-muted-foreground mb-6 italic hover:text-foreground transition-colors duration-300">"{testimonial.text}"</p>
               <div>
-                <div className="font-bold text-white">{testimonial.name}</div>
-                <div className="text-red-400 text-sm">{testimonial.business}</div>
+                <div className="font-bold text-foreground">{testimonial.name}</div>
+                <div className="text-gold-light text-sm">{testimonial.business}</div>
               </div>
             </div>
           ))}
