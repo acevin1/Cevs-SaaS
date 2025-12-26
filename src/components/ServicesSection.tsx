@@ -112,17 +112,17 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-900 text-white relative z-10">
+    <section id="services" className="py-20 bg-secondary text-foreground relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            {t.title.split(' ')[0]} <span className="text-red-500">{t.title.split(' ').slice(1).join(' ')}</span>
+          <h2 className="text-4xl font-bold mb-4 text-foreground">
+            {t.title.split(' ')[0]} <span className="text-gold-light">{t.title.split(' ').slice(1).join(' ')}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             {t.subtitle}
           </p>
-          <div className="bg-red-600/20 border border-red-600 rounded-lg p-4 inline-block">
-            <p className="text-red-300 font-semibold">
+          <div className="bg-gold/20 border border-gold rounded-lg p-4 inline-block">
+            <p className="text-gold-light font-semibold">
               {t.pricing}
             </p>
           </div>
@@ -130,20 +130,20 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-red-500 transition-colors duration-300">
+            <div key={index} className="bg-card p-8 rounded-xl border border-border hover:border-gold transition-colors duration-300">
               <div className="flex items-start gap-4 mb-6">
-                <service.icon className="w-12 h-12 text-red-500 flex-shrink-0 mt-1" />
+                <service.icon className="w-12 h-12 text-silver flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 text-white">{service.title}</h3>
-                  <p className="text-gray-300">{service.description}</p>
+                  <h3 className="text-2xl font-bold mb-2 text-foreground">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.description}</p>
                 </div>
               </div>
               
               <ul className="space-y-3">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300">{feature}</span>
+                    <CheckCircle className="w-5 h-5 text-gold-light flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>

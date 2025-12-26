@@ -43,19 +43,19 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Language Selector - Left Side */}
           <div className="flex items-center gap-2">
-            <Globe className="w-5 h-5 text-gray-600" />
+            <Globe className="w-5 h-5 text-silver" />
             <div className="flex gap-1">
               <button 
                 onClick={() => handleLanguageChange('de')}
                 className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
                   currentLanguage === 'de' 
-                    ? 'bg-orange-600 text-white' 
-                    : 'text-gray-600 hover:text-orange-600'
+                    ? 'bg-gold text-foreground' 
+                    : 'text-silver hover:text-gold-light'
                 }`}
               >
                 DE
@@ -64,8 +64,8 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
                 onClick={() => handleLanguageChange('en')}
                 className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
                   currentLanguage === 'en' 
-                    ? 'bg-orange-600 text-white' 
-                    : 'text-gray-600 hover:text-orange-600'
+                    ? 'bg-gold text-foreground' 
+                    : 'text-silver hover:text-gold-light'
                 }`}
               >
                 EN
@@ -74,7 +74,7 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
           </div>
 
           {/* Brand - Center */}
-          <div className="text-2xl font-bold text-gray-900 absolute left-1/2 transform -translate-x-1/2">
+          <div className="text-2xl font-bold text-foreground absolute left-1/2 transform -translate-x-1/2">
             WebDev Pro
           </div>
           
@@ -82,31 +82,31 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
           <nav className="hidden md:flex space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
+              className="text-silver hover:text-gold-light transition-colors"
             >
               {t.home}
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
+              className="text-silver hover:text-gold-light transition-colors"
             >
               {t.about}
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
+              className="text-silver hover:text-gold-light transition-colors"
             >
               {t.services}
             </button>
             <button 
               onClick={() => scrollToSection('results')}
-              className="text-gray-700 hover:text-orange-600 transition-colors"
+              className="text-silver hover:text-gold-light transition-colors"
             >
               {t.results}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
+              className="bg-gold text-foreground px-6 py-2 rounded-lg hover:bg-gold-light transition-colors"
             >
               {t.contact}
             </button>
@@ -114,7 +114,7 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-700"
+            className="md:hidden text-silver"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -123,35 +123,35 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+          <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4">
             <div className="flex flex-col space-y-4">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-orange-600 transition-colors text-left"
+                className="text-silver hover:text-gold-light transition-colors text-left"
               >
                 {t.home}
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-orange-600 transition-colors text-left"
+                className="text-silver hover:text-gold-light transition-colors text-left"
               >
                 {t.about}
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-orange-600 transition-colors text-left"
+                className="text-silver hover:text-gold-light transition-colors text-left"
               >
                 {t.services}
               </button>
               <button 
                 onClick={() => scrollToSection('results')}
-                className="text-gray-700 hover:text-orange-600 transition-colors text-left"
+                className="text-silver hover:text-gold-light transition-colors text-left"
               >
                 {t.results}
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors text-left"
+                className="bg-gold text-foreground px-6 py-2 rounded-lg hover:bg-gold-light transition-colors text-left"
               >
                 {t.contact}
               </button>

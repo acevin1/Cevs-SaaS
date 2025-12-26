@@ -24,18 +24,18 @@ const DynamicBackground = () => {
 
     const animate = () => {
       // Clear canvas with black background
-      ctx.fillStyle = '#000000';
+      ctx.fillStyle = '#0d0d0d';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Create gradient effect around cursor
+      // Create gradient effect around cursor with dark gold
       const gradient = ctx.createRadialGradient(
         mousePos.current.x, mousePos.current.y, 0,
         mousePos.current.x, mousePos.current.y, 200
       );
       
-      gradient.addColorStop(0, 'rgba(239, 68, 68, 0.15)'); // Red center
-      gradient.addColorStop(0.3, 'rgba(239, 68, 68, 0.08)'); // Fade to less red
-      gradient.addColorStop(0.6, 'rgba(239, 68, 68, 0.03)'); // Very subtle red
+      gradient.addColorStop(0, 'rgba(133, 104, 41, 0.15)'); // Dark gold center
+      gradient.addColorStop(0.3, 'rgba(133, 104, 41, 0.08)'); // Fade to less gold
+      gradient.addColorStop(0.6, 'rgba(133, 104, 41, 0.03)'); // Very subtle gold
       gradient.addColorStop(1, 'rgba(0, 0, 0, 0)'); // Transparent edge
 
       ctx.fillStyle = gradient;
