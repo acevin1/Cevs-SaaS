@@ -1,20 +1,25 @@
 import { ArrowRight, Upload } from 'lucide-react';
 import { useState } from 'react';
 import DynamicBackground from './DynamicBackground';
+import DemoSelector from './DemoSelector';
+
 interface HeroSectionProps {
   currentLanguage: 'de' | 'en';
 }
+
 const HeroSection = ({
   currentLanguage
 }: HeroSectionProps) => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [isDemoSelectorOpen, setIsDemoSelectorOpen] = useState(false);
+
   const content = {
     de: {
       title: "Kein Schnickschnack.",
       subtitle: "Qualität",
       description: "Hi, ich bin Max Müller – Webentwickler und Digitalberater. Seit 2,5 Jahren helfe ich lokalen Unternehmen dabei, digital sichtbar zu werden.",
       callout: "Du willst digital durchstarten, aber hast keinen Plan von Websites? Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.",
-      button: "Erzähl mir von deinem Projekt",
+      button: "Beispiel-Seiten",
       upload: "Dein Profilbild",
       uploadText: "Klicke zum Hochladen",
       stats: {
@@ -29,7 +34,7 @@ const HeroSection = ({
       subtitle: "Quality",
       description: "Hi, I'm Max Müller – web developer and digital consultant. For 2.5 years I've been helping local businesses become digitally visible.",
       callout: "You want to go digital but have no idea about websites? I listen and develop a solution with you that works.",
-      button: "Tell me about your project",
+      button: "Demo-Websites",
       upload: "Your Profile Picture",
       uploadText: "Click to upload",
       stats: {
@@ -40,15 +45,13 @@ const HeroSection = ({
       }
     }
   };
+
   const t = content[currentLanguage];
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+
+  const openDemoSelector = () => {
+    setIsDemoSelectorOpen(true);
   };
+
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -111,11 +114,17 @@ const HeroSection = ({
                   </p>
                 </div>
 
-                <button onClick={scrollToContact} className="bg-gold hover:bg-gold-light text-foreground px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105">
+                <button onClick={openDemoSelector} className="bg-gold hover:bg-gold-light text-foreground px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105">
                   {t.button}
                   <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
                 </button>
               </div>
+
+              <DemoSelector 
+                isOpen={isDemoSelectorOpen} 
+                onClose={() => setIsDemoSelectorOpen(false)} 
+                currentLanguage={currentLanguage} 
+              />
 
               {/* Stats - Key Facts in Dark Gold */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 animate-fade-in delay-700">
