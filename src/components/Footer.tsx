@@ -1,5 +1,6 @@
 
 import { Instagram, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface FooterProps {
   currentLanguage: 'de' | 'en';
@@ -128,12 +129,12 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
             © {currentYear} WebDev Pro. {t.rights}
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#imprint" className="text-muted-foreground hover:text-gold-light transition-colors">
+            <Link to="/imprint" className="text-muted-foreground hover:text-gold-light transition-colors">
               {t.imprint}
-            </a>
-            <a href="#imprint" className="text-muted-foreground hover:text-gold-light transition-colors">
+            </Link>
+            <Link to="/imprint" className="text-muted-foreground hover:text-gold-light transition-colors">
               {t.privacy}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
