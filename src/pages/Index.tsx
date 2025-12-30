@@ -7,6 +7,7 @@ import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import ResultsSection from '@/components/ResultsSection';
 import ContactSection from '@/components/ContactSection';
+import ImprintSection from '@/components/ImprintSection';
 import Footer from '@/components/Footer';
 import DynamicBackground from '@/components/DynamicBackground';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -36,6 +37,7 @@ const Index = () => {
         <ServicesSection currentLanguage={currentLanguage} />
         <ResultsSection currentLanguage={currentLanguage} />
         <ContactSection currentLanguage={currentLanguage} />
+        <ImprintSection currentLanguage={currentLanguage} />
         <Footer 
           currentLanguage={currentLanguage} 
           onLanguageChange={handleLanguageSelect}

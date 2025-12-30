@@ -128,10 +128,10 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
             © {currentYear} WebDev Pro. {t.rights}
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-gold-light transition-colors">
+            <a href="#imprint" className="text-muted-foreground hover:text-gold-light transition-colors">
               {t.imprint}
             </a>
-            <a href="#" className="text-muted-foreground hover:text-gold-light transition-colors">
+            <a href="#imprint" className="text-muted-foreground hover:text-gold-light transition-colors">
               {t.privacy}
             </a>
           </div>
