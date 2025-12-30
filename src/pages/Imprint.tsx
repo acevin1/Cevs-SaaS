@@ -1,20 +1,29 @@
 
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-interface ImprintSectionProps {
-  currentLanguage: 'de' | 'en';
-}
+const Imprint = () => {
+  const [currentLanguage, setCurrentLanguage] = useState<'de' | 'en'>('de');
 
-const ImprintSection = ({ currentLanguage }: ImprintSectionProps) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const savedLanguage = localStorage.getItem('selectedLanguage') as 'de' | 'en';
+    if (savedLanguage) {
+      setCurrentLanguage(savedLanguage);
+    }
+  }, []);
+
   const content = {
     de: {
+      back: "Zurück zur Startseite",
       title: "Rechtliches",
       imprint: "Impressum",
       privacy: "Datenschutz (DSGVO)",
       imprintContent: {
         title: "Impressum",
-        placeholder: "[Hier Impressum-Text einfügen]",
-        example: `Angaben gemäß § 5 TMG:
+        text: `Angaben gemäß § 5 TMG:
 
 Max Mustermann
 WebDev Pro
@@ -32,8 +41,7 @@ Musterstraße 123
       },
       privacyContent: {
         title: "Datenschutzerklärung",
-        placeholder: "[Hier DSGVO-konformen Datenschutztext einfügen]",
-        example: `1. Datenschutz auf einen Blick
+        text: `1. Datenschutz auf einen Blick
 
 Allgemeine Hinweise
 Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.
@@ -54,13 +62,13 @@ Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeichert
       }
     },
     en: {
+      back: "Back to Home",
       title: "Legal",
       imprint: "Imprint",
       privacy: "Privacy Policy (GDPR)",
       imprintContent: {
         title: "Imprint",
-        placeholder: "[Insert imprint text here]",
-        example: `Information according to § 5 TMG:
+        text: `Information according to § 5 TMG:
 
 Max Mustermann
 WebDev Pro
@@ -78,8 +86,7 @@ Sample Street 123
       },
       privacyContent: {
         title: "Privacy Policy",
-        placeholder: "[Insert GDPR-compliant privacy text here]",
-        example: `1. Privacy at a Glance
+        text: `1. Privacy at a Glance
 
 General Information
 The following information provides a simple overview of what happens to your personal data when you visit this website.
@@ -104,11 +111,19 @@ You have the right at any time to receive free information about your stored per
   const t = content[currentLanguage];
 
   return (
-    <section id="imprint" className="py-16 bg-secondary/50 relative z-10">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-foreground">
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8">
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold-light transition-colors mb-8"
+        >
+          <ArrowLeft size={20} />
+          {t.back}
+        </Link>
+
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-foreground">
           {t.title}
-        </h2>
+        </h1>
         
         <Tabs defaultValue="imprint" className="max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 mb-8">
@@ -121,26 +136,26 @@ You have the right at any time to receive free information about your stored per
           </TabsList>
           
           <TabsContent value="imprint" className="bg-card rounded-lg p-6 md:p-8 border border-border">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">
+            <h2 className="text-2xl font-bold mb-6 text-foreground">
               {t.imprintContent.title}
-            </h3>
+            </h2>
             <div className="text-muted-foreground whitespace-pre-line leading-relaxed">
-              {t.imprintContent.example}
+              {t.imprintContent.text}
             </div>
           </TabsContent>
           
           <TabsContent value="privacy" className="bg-card rounded-lg p-6 md:p-8 border border-border">
-            <h3 className="text-2xl font-bold mb-6 text-foreground">
+            <h2 className="text-2xl font-bold mb-6 text-foreground">
               {t.privacyContent.title}
-            </h3>
+            </h2>
             <div className="text-muted-foreground whitespace-pre-line leading-relaxed">
-              {t.privacyContent.example}
+              {t.privacyContent.text}
             </div>
           </TabsContent>
         </Tabs>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ImprintSection;
+export default Imprint;
