@@ -22,7 +22,7 @@ const DemoSelector = ({ isOpen, onClose, currentLanguage }: DemoSelectorProps) =
       title: "Wähle eine Demo-Website",
       demos: [
         { id: 'restaurant', name: 'Restaurant', icon: UtensilsCrossed },
-        { id: 'real-estate', name: 'Immobilien', icon: Building2 },
+        { id: 'real-estate', name: 'Immobilienmakler', icon: Building2 },
         { id: 'hairdresser', name: 'Friseur', icon: Scissors },
       ]
     },
@@ -30,7 +30,7 @@ const DemoSelector = ({ isOpen, onClose, currentLanguage }: DemoSelectorProps) =
       title: "Choose a Demo Website",
       demos: [
         { id: 'restaurant', name: 'Restaurant', icon: UtensilsCrossed },
-        { id: 'real-estate', name: 'Real Estate', icon: Building2 },
+        { id: 'real-estate', name: 'Real Estate Agent', icon: Building2 },
         { id: 'hairdresser', name: 'Hairdresser', icon: Scissors },
       ]
     }
