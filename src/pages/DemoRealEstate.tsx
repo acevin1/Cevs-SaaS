@@ -15,7 +15,7 @@ const DemoRealEstate = () => {
   }, []);
 
   const propertyImages = [
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075',
+    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070',
     'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070',
     'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053',
     'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070',
@@ -140,12 +140,12 @@ const DemoRealEstate = () => {
     <div className="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
       {/* Background Image Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2940")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070")',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/50 to-[#0a0a0a]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]" />
 
       {/* Header */}
       <header className="relative z-50 border-b border-white/10">
