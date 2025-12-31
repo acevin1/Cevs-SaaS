@@ -137,159 +137,152 @@ const DemoRealEstate = () => {
   const t = content[currentLanguage];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
-      {/* Background Image Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070")',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]" />
-
-      {/* Header */}
-      <header className="relative z-50 border-b border-white/10">
-        <div className="container mx-auto px-6 py-5">
-          <div className="flex items-center justify-between">
-            {/* Back Button */}
-            <Link 
-              to="/" 
-              className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
-            >
-              <ArrowLeft size={18} />
-              <span className="hidden sm:inline">{t.back}</span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {Object.values(t.nav).map((item, index) => (
-                <button 
-                  key={index}
-                  className="text-white/70 hover:text-white transition-colors text-sm tracking-wide uppercase"
-                >
-                  {item}
-                </button>
-              ))}
-            </nav>
-
-            {/* Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-              <span className="text-2xl font-serif italic text-white tracking-wider">JI</span>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button 
-              className="lg:hidden text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-
-            {/* CTA */}
-            <button className="hidden lg:block text-sm text-white/70 hover:text-white transition-colors">
-              {t.contact.phone}
-            </button>
-          </div>
+    <div className="min-h-screen bg-[#f5f5f0] text-[#2d3436] overflow-x-hidden">
+      {/* Hero Section - Full Screen with clear image like restaurant */}
+      <section className="relative h-screen">
+        {/* Background Image - clear, not blurred */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-lg border-b border-white/10">
-            <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
-              {Object.values(t.nav).map((item, index) => (
-                <button 
-                  key={index}
-                  className="text-white/70 hover:text-white transition-colors text-left py-2 text-lg"
-                >
-                  {item}
-                </button>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
+        {/* Navigation */}
+        <nav className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6">
+          <Link 
+            to="/" 
+            className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm tracking-widest uppercase"
+          >
+            <ArrowLeft size={16} />
+            <span>{t.back}</span>
+          </Link>
+          
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white hover:text-[#d4af37] transition-colors"
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </nav>
 
-      {/* Hero Section */}
-      <section className="relative z-10 min-h-[90vh] flex items-center justify-center">
-        <div className="container mx-auto px-6 text-center">
-          {/* Subtitle */}
-          <p className="text-white/60 text-sm tracking-[0.3em] uppercase mb-6 animate-fade-in">
+        {/* Contact Button */}
+        <div className="absolute top-6 right-24 z-50 hidden md:block">
+          <button className="border border-white/80 text-white text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-white hover:text-[#2d3436] transition-all duration-300">
+            {t.nav.contact}
+          </button>
+        </div>
+
+        {/* Centered Logo/Title */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <p className="text-white/80 text-sm tracking-[0.3em] uppercase mb-6">
             {t.hero.subtitle}
           </p>
-          
-          {/* Main Title */}
-          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-wide mb-4">
-            <span className="italic">{t.hero.title.charAt(0)}</span>
-            <span>{t.hero.title.slice(1)}</span>
+          <h1 className="text-white text-[10vw] md:text-[8vw] font-serif tracking-[0.05em] uppercase leading-none">
+            JÜRGEN IMMO
           </h1>
-          
-          {/* Decorative Line with Tagline */}
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <div className="h-px w-16 sm:w-32 bg-white/30" />
-            <span className="text-white/60 text-sm tracking-[0.2em] uppercase italic">{t.hero.tagline}</span>
-            <div className="h-px w-16 sm:w-32 bg-white/30" />
+          <div className="flex items-center justify-center gap-4 mt-6 mb-10">
+            <div className="h-px w-16 sm:w-32 bg-white/50" />
+            <span className="text-white/70 text-sm tracking-[0.2em] uppercase">{t.hero.tagline}</span>
+            <div className="h-px w-16 sm:w-32 bg-white/50" />
           </div>
-
-          {/* CTA Button */}
-          <button className="group relative bg-white text-[#0a0a0a] px-10 py-4 text-sm tracking-wide uppercase hover:bg-white/90 transition-all duration-300">
+          <button className="border-2 border-white text-white text-sm tracking-[0.2em] uppercase px-10 py-4 hover:bg-white hover:text-[#2d3436] transition-all duration-300">
             {t.hero.cta}
           </button>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
-          <div className="w-px h-12 bg-white/20 animate-pulse" />
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+          <span className="text-white/60 text-xs tracking-[0.3em] uppercase">Scroll</span>
+          <div className="w-px h-16 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
       </section>
 
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-[#2d3436] z-40 flex items-center justify-center">
+          <nav className="flex flex-col items-center gap-8 text-white">
+            {Object.values(t.nav).map((item, index) => (
+              <a 
+                key={index}
+                href="#"
+                className="text-3xl md:text-5xl font-serif tracking-widest hover:text-[#d4af37] transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
+
       {/* Stats Section */}
-      <section className="relative z-10 py-20 border-t border-b border-white/10">
+      <section className="py-20 bg-[#2d3436]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
             {t.stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl sm:text-5xl font-serif text-white mb-2">{stat.value}</div>
-                <div className="text-white/50 text-sm tracking-wide uppercase">{stat.label}</div>
+              <div key={index} className="text-center text-white">
+                <div className="text-4xl sm:text-5xl font-serif mb-2">{stat.value}</div>
+                <div className="text-white/60 text-sm tracking-wide uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="relative z-10 py-24">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl sm:text-5xl font-serif text-center mb-16 font-light">
-            {t.services.title}
+      {/* About Section */}
+      <section className="py-32 px-8 bg-[#f5f5f0]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-5xl md:text-7xl font-serif text-[#2d3436] mb-8 tracking-wide">
+            Jürgen Immo
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {t.services.items.map((service, index) => (
-              <div 
-                key={index} 
-                className="group p-8 border border-white/10 hover:border-white/30 transition-all duration-500 bg-white/5 hover:bg-white/10"
-              >
-                <service.icon className="w-10 h-10 text-white/70 mb-6 group-hover:text-white transition-colors" />
-                <h3 className="text-xl font-serif mb-3">{service.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{service.desc}</p>
-              </div>
-            ))}
+          <p className="text-lg md:text-xl leading-relaxed text-[#636e72] font-light max-w-3xl mx-auto">
+            {currentLanguage === 'de' 
+              ? 'Ihr vertrauenswürdiger Partner für exklusive Immobilien. Mit über 15 Jahren Erfahrung begleiten wir Sie professionell bei Kauf, Verkauf und Bewertung hochwertiger Objekte.'
+              : 'Your trusted partner for exclusive real estate. With over 15 years of experience, we professionally guide you through buying, selling, and valuation of premium properties.'}
+          </p>
+        </div>
+      </section>
+
+      {/* Services Section with Image */}
+      <section className="grid md:grid-cols-2 min-h-screen">
+        <div 
+          className="h-[50vh] md:h-auto bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80')`,
+          }}
+        />
+        <div className="flex items-center justify-center p-12 md:p-20 bg-[#f5f5f0]">
+          <div className="max-w-md">
+            <h3 className="text-4xl md:text-5xl font-serif text-[#2d3436] mb-6">{t.services.title}</h3>
+            <div className="space-y-6">
+              {t.services.items.map((service, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <service.icon className="w-6 h-6 text-[#d4af37] mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-[#2d3436]">{service.title}</h4>
+                    <p className="text-[#636e72] font-light text-sm">{service.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Properties Section */}
-      <section className="relative z-10 py-24 bg-[#111]">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl sm:text-5xl font-serif text-center mb-16 font-light">
+      <section className="py-32 px-8 bg-[#2d3436]">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-serif text-white mb-16 text-center">
             {t.properties.title}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
             {t.properties.items.map((property, index) => (
               <div 
                 key={index} 
-                className="group relative overflow-hidden bg-white/5 hover:bg-white/10 transition-all duration-500"
+                className="group bg-white overflow-hidden hover:shadow-2xl transition-all duration-500"
               >
-                {/* Property Image */}
                 <div className="aspect-[4/3] relative overflow-hidden">
                   <img 
                     src={propertyImages[index]} 
@@ -297,22 +290,20 @@ const DemoRealEstate = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {index === 0 && (
-                    <span className="absolute top-4 left-4 bg-white text-[#0a0a0a] px-4 py-1 text-xs tracking-wide uppercase">
+                    <span className="absolute top-4 left-4 bg-[#d4af37] text-white px-4 py-1 text-xs tracking-wide uppercase">
                       {t.properties.featured}
                     </span>
                   )}
                 </div>
-                
-                {/* Property Details */}
                 <div className="p-6">
-                  <div className="flex items-center gap-2 text-white/50 text-sm mb-2">
+                  <div className="flex items-center gap-2 text-[#636e72] text-sm mb-2">
                     <MapPin size={14} />
                     <span>{property.location}</span>
                   </div>
-                  <h3 className="text-2xl font-serif mb-4 group-hover:text-white/80 transition-colors">
+                  <h4 className="text-2xl font-serif text-[#2d3436] mb-4">
                     {property.title}
-                  </h3>
-                  <div className="flex items-center gap-6 text-white/50 text-sm mb-4">
+                  </h4>
+                  <div className="flex items-center gap-6 text-[#636e72] text-sm mb-4">
                     <span className="flex items-center gap-2">
                       <BedDouble size={16} /> {property.beds}
                     </span>
@@ -323,7 +314,7 @@ const DemoRealEstate = () => {
                       <Square size={16} /> {property.sqm}m²
                     </span>
                   </div>
-                  <div className="text-2xl font-serif text-white">{property.price}</div>
+                  <div className="text-2xl font-serif text-[#2d3436]">{property.price}</div>
                 </div>
               </div>
             ))}
@@ -332,55 +323,74 @@ const DemoRealEstate = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="relative z-10 py-24">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h2 className="text-4xl sm:text-5xl font-serif mb-16 font-light">
-            {t.testimonial.title}
-          </h2>
+      <section 
+        className="relative py-40 px-8 bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h3 className="text-4xl md:text-5xl font-serif mb-12">{t.testimonial.title}</h3>
           <div className="flex justify-center gap-1 mb-8">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-white text-white" />
+              <Star key={i} className="w-5 h-5 fill-[#d4af37] text-[#d4af37]" />
             ))}
           </div>
-          <blockquote className="text-2xl sm:text-3xl font-serif font-light italic text-white/80 mb-8 leading-relaxed">
+          <blockquote className="text-2xl sm:text-3xl font-serif font-light italic text-white/90 mb-8 leading-relaxed">
             {t.testimonial.quote}
           </blockquote>
-          <div className="text-white/60">
+          <div className="text-white/80">
             <p className="text-lg">{t.testimonial.author}</p>
-            <p className="text-sm">{t.testimonial.role}</p>
+            <p className="text-sm text-white/60">{t.testimonial.role}</p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="relative z-10 py-24 bg-white text-[#0a0a0a]">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl sm:text-5xl font-serif mb-4 font-light">
-            {t.contact.title}
-          </h2>
-          <p className="text-[#0a0a0a]/60 mb-12">{t.contact.subtitle}</p>
+      <section className="py-24 px-8 bg-[#2d3436] text-white">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-serif mb-4 text-center">{t.contact.title}</h3>
+          <p className="text-white/60 text-center mb-12">{t.contact.subtitle}</p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
-            <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5" />
-              <span>{t.contact.phone}</span>
+          <div className="grid md:grid-cols-3 gap-12 text-center">
+            <div>
+              <h4 className="text-xs tracking-[0.3em] uppercase mb-4 text-[#d4af37]">{currentLanguage === 'de' ? 'Telefon' : 'Phone'}</h4>
+              <p className="font-light flex items-center justify-center gap-2">
+                <Phone className="w-4 h-4" />
+                {t.contact.phone}
+              </p>
             </div>
-            <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5" />
-              <span>{t.contact.email}</span>
+            <div>
+              <h4 className="text-xs tracking-[0.3em] uppercase mb-4 text-[#d4af37]">E-Mail</h4>
+              <p className="font-light flex items-center justify-center gap-2">
+                <Mail className="w-4 h-4" />
+                {t.contact.email}
+              </p>
             </div>
-            <div className="flex items-center gap-3">
-              <MapPin className="w-5 h-5" />
-              <span>{t.contact.address}</span>
+            <div>
+              <h4 className="text-xs tracking-[0.3em] uppercase mb-4 text-[#d4af37]">{currentLanguage === 'de' ? 'Adresse' : 'Address'}</h4>
+              <p className="font-light flex items-center justify-center gap-2">
+                <MapPin className="w-4 h-4" />
+                {t.contact.address}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-8 border-t border-white/10">
-        <div className="container mx-auto px-6 text-center text-white/40 text-sm">
-          <p>{t.footer}</p>
+      <footer className="py-12 px-8 bg-[#1a1a1a] text-white/60">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-4xl font-serif text-white tracking-widest">JÜRGEN IMMO</p>
+          <nav className="flex gap-8 text-xs tracking-widest uppercase">
+            {Object.values(t.nav).slice(0, 4).map((item, index) => (
+              <a key={index} href="#" className="hover:text-[#d4af37] transition-colors">
+                {item}
+              </a>
+            ))}
+          </nav>
+          <p className="text-xs">{t.footer}</p>
         </div>
       </footer>
     </div>
