@@ -14,6 +14,13 @@ const DemoRealEstate = () => {
     }
   }, []);
 
+  const propertyImages = [
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075',
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070',
+    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053',
+    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070',
+  ];
+
   const content = {
     de: {
       back: 'Zurück',
@@ -26,7 +33,7 @@ const DemoRealEstate = () => {
       },
       hero: {
         subtitle: 'Premium Immobilienmakler',
-        title: 'Casagrande',
+        title: 'Jürgen Immo',
         tagline: 'Immobilien',
         cta: 'Immobilien durchsuchen',
       },
@@ -65,10 +72,10 @@ const DemoRealEstate = () => {
         title: 'Lassen Sie uns sprechen',
         subtitle: 'Kontaktieren Sie uns für eine unverbindliche Beratung',
         phone: '+49 30 123 456 789',
-        email: 'info@casagrande-immobilien.de',
+        email: 'info@juergen-immo.de',
         address: 'Kurfürstendamm 100, 10711 Berlin',
       },
-      footer: '© 2024 Casagrande Immobilien - Demo Website',
+      footer: '© 2024 Jürgen Immo - Demo Website',
     },
     en: {
       back: 'Back',
@@ -81,7 +88,7 @@ const DemoRealEstate = () => {
       },
       hero: {
         subtitle: 'Premium Real Estate Agent',
-        title: 'Casagrande',
+        title: 'Jürgen Immo',
         tagline: 'Real Estate',
         cta: 'Search Properties',
       },
@@ -120,10 +127,10 @@ const DemoRealEstate = () => {
         title: "Let's Connect",
         subtitle: 'Contact us for a no-obligation consultation',
         phone: '+49 30 123 456 789',
-        email: 'info@casagrande-realestate.com',
+        email: 'info@juergen-immo.com',
         address: 'Kurfürstendamm 100, 10711 Berlin',
       },
-      footer: '© 2024 Casagrande Real Estate - Demo Website',
+      footer: '© 2024 Jürgen Immo - Demo Website',
     },
   };
 
@@ -167,7 +174,7 @@ const DemoRealEstate = () => {
 
             {/* Logo */}
             <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-              <span className="text-3xl font-serif italic text-white tracking-wider">C</span>
+              <span className="text-2xl font-serif italic text-white tracking-wider">JI</span>
             </div>
 
             {/* Mobile Menu Button */}
@@ -282,9 +289,13 @@ const DemoRealEstate = () => {
                 key={index} 
                 className="group relative overflow-hidden bg-white/5 hover:bg-white/10 transition-all duration-500"
               >
-                {/* Property Image Placeholder */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center relative overflow-hidden">
-                  <Building2 className="w-20 h-20 text-white/20" />
+                {/* Property Image */}
+                <div className="aspect-[4/3] relative overflow-hidden">
+                  <img 
+                    src={propertyImages[index]} 
+                    alt={property.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                   {index === 0 && (
                     <span className="absolute top-4 left-4 bg-white text-[#0a0a0a] px-4 py-1 text-xs tracking-wide uppercase">
                       {t.properties.featured}
