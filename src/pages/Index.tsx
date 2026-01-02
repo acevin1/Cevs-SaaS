@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ServicesOverview from '@/components/ServicesOverview';
@@ -13,6 +12,10 @@ import LanguageSelector from '@/components/LanguageSelector';
 
 const Index = () => {
   const [currentLanguage, setCurrentLanguage] = useState<'de' | 'en'>('de');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleLanguageSelect = (language: 'de' | 'en') => {
     console.log('Language selected:', language);

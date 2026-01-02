@@ -95,6 +95,7 @@ const DemoHairdresser = () => {
   const [currentLanguage, setCurrentLanguage] = useState<'de' | 'en'>('de');
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const savedLanguage = localStorage.getItem('selectedLanguage') as 'de' | 'en';
     if (savedLanguage && (savedLanguage === 'de' || savedLanguage === 'en')) {
       setCurrentLanguage(savedLanguage);
