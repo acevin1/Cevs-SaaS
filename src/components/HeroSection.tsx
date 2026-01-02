@@ -62,18 +62,18 @@ const HeroSection = ({
       reader.readAsDataURL(file);
     }
   };
-  return <section id="home" className="min-h-screen relative overflow-hidden pt-20">
+  return <section id="home" className="min-h-[90vh] relative overflow-hidden pt-16">
       <DynamicBackground />
       
-      <div className="relative z-10 container mx-auto px-4 py-8 lg:py-20">
+      <div className="relative z-10 container mx-auto px-4 py-4 lg:py-12">
         <div className="max-w-6xl mx-auto">
           {/* Responsive Layout - Mobile: Stack, Desktop: Side by side */}
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
             
             {/* Profile Image Section */}
             <div className="w-full lg:w-1/3 flex justify-center">
               <div className="relative group">
-                <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gold shadow-2xl bg-secondary">
+                <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-gold shadow-2xl bg-secondary">
                   {profileImage ? <img src={profileImage} alt="Max Müller" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
                       <div className="text-center text-foreground">
                         <Upload size={48} className="mx-auto mb-4 text-silver" />
@@ -90,31 +90,31 @@ const HeroSection = ({
             </div>
 
             {/* Content Section */}
-            <div className="w-full lg:w-2/3 text-center lg:text-left space-y-8 lg:space-y-12">
-              <div className="space-y-6 lg:space-y-8 animate-fade-in">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-foreground">
+            <div className="w-full lg:w-2/3 text-center lg:text-left space-y-4 lg:space-y-6">
+              <div className="space-y-3 lg:space-y-4 animate-fade-in">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-foreground">
                   {t.title}
                   <br />
                   <span className="text-gold-light relative">
                     {t.subtitle}
-                    <div className="absolute -bottom-2 left-0 w-full h-1 bg-gold animate-slide-in-right"></div>
+                    <div className="absolute -bottom-1 left-0 w-full h-1 bg-gold animate-slide-in-right"></div>
                   </span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed animate-fade-in delay-300 text-white">
+                <p className="text-base sm:text-lg lg:text-xl leading-relaxed animate-fade-in delay-300 text-white">
                   {t.description}
                 </p>
               </div>
 
-              <div className="space-y-6 lg:space-y-8 animate-fade-in delay-500">
-                <div className="bg-background/50 backdrop-blur-sm border border-gold/20 rounded-2xl p-6 lg:p-8">
-                  <p className="text-base lg:text-lg text-silver leading-relaxed">
+              <div className="space-y-4 lg:space-y-5 animate-fade-in delay-500">
+                <div className="bg-background/50 backdrop-blur-sm border border-gold/20 rounded-xl p-4 lg:p-5">
+                  <p className="text-sm lg:text-base text-silver leading-relaxed">
                     {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[0]}
                     <span className="text-gold-light font-medium"> {t.callout.split('Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')[1] || (currentLanguage === 'en' ? 'I listen and develop a solution with you that works.' : 'Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.')}</span>
                   </p>
                 </div>
 
-                <button onClick={openDemoSelector} className="bg-gold hover:bg-gold-light text-foreground px-8 lg:px-12 py-3 lg:py-4 rounded-full text-base lg:text-lg font-semibold transition-all duration-300 inline-flex items-center gap-3 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105">
+                <button onClick={openDemoSelector} className="bg-gold hover:bg-gold-light text-foreground px-6 lg:px-10 py-2.5 lg:py-3 rounded-full text-sm lg:text-base font-semibold transition-all duration-300 inline-flex items-center gap-2 group shadow-2xl hover:shadow-gold/25 transform hover:scale-105">
                   {t.button}
                   <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300" size={20} />
                 </button>
@@ -127,22 +127,22 @@ const HeroSection = ({
               />
 
               {/* Stats - Key Facts in Dark Gold */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 animate-fade-in delay-700">
-                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-gold-light">30M+</div>
-                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.views}</div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-3 animate-fade-in delay-700">
+                <div className="text-center p-2 lg:p-3 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-lg lg:text-xl font-bold text-gold-light">30M+</div>
+                  <div className="text-xs text-muted-foreground">{t.stats.views}</div>
                 </div>
-                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-gold-light">2.5</div>
-                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.years}</div>
+                <div className="text-center p-2 lg:p-3 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-lg lg:text-xl font-bold text-gold-light">2.5</div>
+                  <div className="text-xs text-muted-foreground">{t.stats.years}</div>
                 </div>
-                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-gold-light">100%</div>
-                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.honest}</div>
+                <div className="text-center p-2 lg:p-3 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-lg lg:text-xl font-bold text-gold-light">100%</div>
+                  <div className="text-xs text-muted-foreground">{t.stats.honest}</div>
                 </div>
-                <div className="text-center p-3 lg:p-4 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
-                  <div className="text-xl lg:text-2xl font-bold text-gold-light">∞</div>
-                  <div className="text-xs lg:text-sm text-muted-foreground">{t.stats.quality}</div>
+                <div className="text-center p-2 lg:p-3 bg-background/30 backdrop-blur-sm rounded-lg border border-border hover:border-gold/50 transition-all duration-300">
+                  <div className="text-lg lg:text-xl font-bold text-gold-light">∞</div>
+                  <div className="text-xs text-muted-foreground">{t.stats.quality}</div>
                 </div>
               </div>
             </div>
