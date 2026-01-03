@@ -1,5 +1,5 @@
 
-import { TrendingUp, Users, Star } from 'lucide-react';
+import { TrendingUp, Users, Star, ExternalLink } from 'lucide-react';
 import analyticsImage from '@/assets/analytics-placeholder.jpg';
 
 interface ResultsSectionProps {
@@ -19,7 +19,8 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
       projectEnd: " erreicht.",
       stats: {
         views: "Aufrufe",
-        followers: "Neue Follower"
+        followers: "Neue Follower",
+        viewProfile: "Profil ansehen"
       },
       workspace: {
         title: "Analytics Dashboard",
@@ -58,7 +59,8 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
       projectEnd: ".",
       stats: {
         views: "Views",
-        followers: "New Followers"
+        followers: "New Followers",
+        viewProfile: "View Profile"
       },
       workspace: {
         title: "Analytics Dashboard",
@@ -129,6 +131,16 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
                   <div className="text-sm text-muted-foreground">{t.stats.followers}</div>
                 </div>
               </div>
+              
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-gold to-gold-light text-foreground px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
+              >
+                <ExternalLink className="w-4 h-4" />
+                {t.stats.viewProfile}
+              </a>
             </div>
             
             <div className="relative">
