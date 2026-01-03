@@ -1,5 +1,6 @@
 
-import { TrendingUp, Users, Eye, Star } from 'lucide-react';
+import { TrendingUp, Users, Star } from 'lucide-react';
+import analyticsImage from '@/assets/analytics-placeholder.jpg';
 
 interface ResultsSectionProps {
   currentLanguage: 'de' | 'en';
@@ -35,7 +36,7 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
         {
           name: "Thomas Klein",
           business: "Klein's Bäckerei",
-          text: "Die Zusammenarbeit mit Max war menschlich, professionell und direkt. Kein Blabla – sondern Ergebnisse.",
+          text: "Die Zusammenarbeit mit Cevin war menschlich, professionell und direkt. Kein Blabla – sondern Ergebnisse.",
           rating: 5
         },
         {
@@ -74,7 +75,7 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
         {
           name: "Thomas Klein",
           business: "Klein's Bakery",
-          text: "Working with Max was personal, professional and direct. No nonsense – just results.",
+          text: "Working with Cevin was personal, professional and direct. No nonsense – just results.",
           rating: 5
         },
         {
@@ -131,14 +132,12 @@ const ResultsSection = ({ currentLanguage }: ResultsSectionProps) => {
             </div>
             
             <div className="relative">
-              <div className="w-full h-80 bg-gradient-to-br from-muted via-secondary to-card rounded-xl shadow-lg flex items-center justify-center text-foreground border border-border">
-                <div className="text-center space-y-4">
-                  <div className="w-16 h-16 bg-gold rounded-full mx-auto flex items-center justify-center">
-                    <TrendingUp className="w-8 h-8 text-foreground" />
-                  </div>
-                  <div className="text-lg font-bold">{t.workspace.title}</div>
-                  <div className="text-sm text-muted-foreground">{t.workspace.subtitle}</div>
-                </div>
+              <div className="w-full h-80 rounded-xl shadow-lg overflow-hidden border border-border">
+                <img 
+                  src={analyticsImage} 
+                  alt={t.workspace.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute top-4 right-4 bg-gradient-to-r from-emerald-600 to-emerald-500 text-foreground px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
                 {t.liveProject}

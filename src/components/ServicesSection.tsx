@@ -1,5 +1,5 @@
 
-import { Code, Instagram, MapPin, Brain, CheckCircle } from 'lucide-react';
+import { Code, Instagram, Brain, CheckCircle, Palette, CreditCard } from 'lucide-react';
 
 interface ServicesSectionProps {
   currentLanguage: 'de' | 'en';
@@ -14,12 +14,22 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
       services: [
         {
           title: "Website-Erstellung",
-          description: "Professionelle Websites für Einzelunternehmer, kleine Läden und Dienstleister",
+          description: "Professionelle One-Pager & Websites für Einzelunternehmer, kleine Läden und Dienstleister",
           features: [
-            "Individuell entwickelt – keine Baukastensysteme",
+            "Spezialisiert auf schöne One-Pager",
+            "Multi-Page Websites ebenfalls möglich",
             "Responsive Design für alle Geräte",
-            "SEO-optimiert für bessere Sichtbarkeit",
-            "Wartung und Support inklusive"
+            "SEO-optimiert für bessere Sichtbarkeit"
+          ]
+        },
+        {
+          title: "Logo & Corporate Design",
+          description: "Einzigartiges Branding für deinen professionellen Auftritt",
+          features: [
+            "Logo-Design & Entwicklung",
+            "Corporate Identity erstellen",
+            "Farbpaletten & Typografie",
+            "Markenrichtlinien definieren"
           ]
         },
         {
@@ -33,13 +43,13 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
           ]
         },
         {
-          title: "Google Business / Maps",
-          description: "Lokale Sichtbarkeit maximieren und Kunden direkt erreichen",
+          title: "Digitale Visitenkarten",
+          description: "Moderne digitale Visitenkarten für den ersten Eindruck",
           features: [
-            "Google Business Profil optimieren",
-            "Bewertungsmanagement",
-            "Lokale SEO-Strategien",
-            "Maps-Integration für bessere Auffindbarkeit"
+            "NFC-fähige Visitenkarten",
+            "QR-Code Integration",
+            "Individuelles Design",
+            "Einfache Kontaktübertragung"
           ]
         },
         {
@@ -61,12 +71,22 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
       services: [
         {
           title: "Website Creation",
-          description: "Professional websites for solo entrepreneurs, small shops and service providers",
+          description: "Professional one-pagers & websites for solo entrepreneurs, small shops and service providers",
           features: [
-            "Individually developed – no template systems",
+            "Specialized in beautiful one-pagers",
+            "Multi-page websites also possible",
             "Responsive design for all devices",
-            "SEO-optimized for better visibility",
-            "Maintenance and support included"
+            "SEO-optimized for better visibility"
+          ]
+        },
+        {
+          title: "Logo & Corporate Design",
+          description: "Unique branding for your professional appearance",
+          features: [
+            "Logo design & development",
+            "Create corporate identity",
+            "Color palettes & typography",
+            "Define brand guidelines"
           ]
         },
         {
@@ -80,13 +100,13 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
           ]
         },
         {
-          title: "Google Business / Maps",
-          description: "Maximize local visibility and reach customers directly",
+          title: "Digital Business Cards",
+          description: "Modern digital business cards for the first impression",
           features: [
-            "Optimize Google Business profile",
-            "Review management",
-            "Local SEO strategies",
-            "Maps integration for better findability"
+            "NFC-enabled business cards",
+            "QR code integration",
+            "Individual design",
+            "Easy contact transfer"
           ]
         },
         {
@@ -104,12 +124,11 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
   };
 
   const t = content[currentLanguage];
-  const services = [
-    { icon: Code, ...t.services[0] },
-    { icon: Instagram, ...t.services[1] },
-    { icon: MapPin, ...t.services[2] },
-    { icon: Brain, ...t.services[3] }
-  ];
+  const icons = [Code, Palette, Instagram, CreditCard, Brain];
+  const services = t.services.map((service, index) => ({
+    icon: icons[index],
+    ...service
+  }));
 
   return (
     <section id="services" className="py-20 bg-secondary text-foreground relative z-10">
@@ -128,7 +147,7 @@ const ServicesSection = ({ currentLanguage }: ServicesSectionProps) => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-card p-8 rounded-xl border border-border hover:border-gold transition-colors duration-300">
               <div className="flex items-start gap-4 mb-6">
