@@ -1,6 +1,5 @@
 
 import { Award, Heart, Target } from 'lucide-react';
-import workspaceImage from '@/assets/workspace-placeholder.jpg';
 
 interface AboutSectionProps {
   currentLanguage: 'de' | 'en';
@@ -63,7 +62,7 @@ const AboutSection = ({ currentLanguage }: AboutSectionProps) => {
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-background to-secondary">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-4xl mx-auto">
           <div className="space-y-8 animate-fade-in">
             <div>
               <h2 className="text-4xl font-bold text-foreground mb-6">
@@ -102,16 +101,6 @@ const AboutSection = ({ currentLanguage }: AboutSectionProps) => {
                 <h4 className="font-bold text-foreground">{t.values.individuality.title}</h4>
                 <p className="text-sm text-muted-foreground">{t.values.individuality.subtitle}</p>
               </div>
-            </div>
-          </div>
-
-          <div className="relative animate-fade-in delay-300">
-            <div className="w-full h-96 rounded-xl shadow-2xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-500 transform hover:scale-105">
-              <img 
-                src={workspaceImage} 
-                alt={t.workspace.title}
-                className="w-full h-full object-cover"
-              />
             </div>
           </div>
         </div>
