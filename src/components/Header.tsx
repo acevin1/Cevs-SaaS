@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
+import logoPlaceholder from '@/assets/logo-placeholder.png';
 
 interface HeaderProps {
   currentLanguage: 'de' | 'en';
@@ -74,8 +74,12 @@ const Header = ({ currentLanguage, onLanguageChange }: HeaderProps) => {
           </div>
 
           {/* Brand - Center */}
-          <div className="text-2xl font-bold text-foreground absolute left-1/2 transform -translate-x-1/2">
-            WebDev Pro
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <img 
+              src={logoPlaceholder} 
+              alt="Firmenlogo" 
+              className="h-8 md:h-10 w-auto object-contain"
+            />
           </div>
           
           {/* Desktop Navigation - Right */}
