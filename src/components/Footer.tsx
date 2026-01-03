@@ -1,5 +1,5 @@
 
-import { Instagram, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface FooterProps {
@@ -81,19 +81,8 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
             </div>
           </div>
 
-          {/* Social & Language */}
+          {/* Language */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">{t.followMe}</h4>
-            <div className="flex gap-4">
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-secondary p-3 rounded-lg hover:bg-gold transition-colors border border-border"
-              >
-                <Instagram size={20} className="text-silver" />
-              </a>
-            </div>
             
             <div className="pt-4">
               <h4 className="text-lg font-semibold mb-2 text-foreground">{t.language}</h4>
