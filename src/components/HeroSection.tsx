@@ -2,6 +2,7 @@ import { ArrowRight, Upload } from 'lucide-react';
 import { useState } from 'react';
 import DynamicBackground from './DynamicBackground';
 import DemoSelector from './DemoSelector';
+import profilePlaceholder from '@/assets/profile-placeholder.jpg';
 
 interface HeroSectionProps {
   currentLanguage: 'de' | 'en';
@@ -10,14 +11,14 @@ interface HeroSectionProps {
 const HeroSection = ({
   currentLanguage
 }: HeroSectionProps) => {
-  const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [profileImage, setProfileImage] = useState<string | null>(profilePlaceholder);
   const [isDemoSelectorOpen, setIsDemoSelectorOpen] = useState(false);
 
   const content = {
     de: {
       title: "Kein Schnickschnack.",
       subtitle: "Qualität",
-      description: "Hi, ich bin Max Müller – Webentwickler und Digitalberater. Seit 2,5 Jahren helfe ich lokalen Unternehmen dabei, digital sichtbar zu werden.",
+      description: "Hi, ich bin Cevin Müller – Webentwickler und Digitalberater. Seit 2,5 Jahren helfe ich lokalen Unternehmen dabei, digital sichtbar zu werden. Meine Spezialität: Schöne One-Pager, die überzeugen.",
       callout: "Du willst digital durchstarten, aber hast keinen Plan von Websites? Ich höre zu und entwickle mit dir eine Lösung, die funktioniert.",
       button: "Beispiel-Seiten",
       upload: "Dein Profilbild",
@@ -32,7 +33,7 @@ const HeroSection = ({
     en: {
       title: "No Nonsense.",
       subtitle: "Quality",
-      description: "Hi, I'm Max Müller – web developer and digital consultant. For 2.5 years I've been helping local businesses become digitally visible.",
+      description: "Hi, I'm Cevin Müller – web developer and digital consultant. For 2.5 years I've been helping local businesses become digitally visible. My specialty: Beautiful one-pagers that convince.",
       callout: "You want to go digital but have no idea about websites? I listen and develop a solution with you that works.",
       button: "Demo-Websites",
       upload: "Your Profile Picture",
@@ -74,7 +75,7 @@ const HeroSection = ({
             <div className="w-full lg:w-1/3 flex justify-center">
               <div className="relative group">
                 <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-gold shadow-2xl bg-secondary">
-                  {profileImage ? <img src={profileImage} alt="Max Müller" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
+                  {profileImage ? <img src={profileImage} alt="Cevin Müller" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
                       <div className="text-center text-foreground">
                         <Upload size={48} className="mx-auto mb-4 text-silver" />
                         <p className="text-lg font-semibold">{t.upload}</p>

@@ -1,5 +1,6 @@
 
-import { Award, Heart, Target, Monitor } from 'lucide-react';
+import { Award, Heart, Target } from 'lucide-react';
+import workspaceImage from '@/assets/workspace-placeholder.jpg';
 
 interface AboutSectionProps {
   currentLanguage: 'de' | 'en';
@@ -105,14 +106,12 @@ const AboutSection = ({ currentLanguage }: AboutSectionProps) => {
           </div>
 
           <div className="relative animate-fade-in delay-300">
-            <div className="w-full h-96 bg-gradient-to-br from-muted via-secondary to-background rounded-xl shadow-2xl flex items-center justify-center text-foreground border border-border hover:border-gold/50 transition-all duration-500 transform hover:scale-105">
-              <div className="text-center space-y-4">
-                <div className="w-20 h-20 bg-gold rounded-full mx-auto flex items-center justify-center">
-                  <Monitor className="w-10 h-10 text-foreground" />
-                </div>
-                <div className="text-xl font-bold">{t.workspace.title}</div>
-                <div className="text-sm text-muted-foreground">{t.workspace.subtitle}</div>
-              </div>
+            <div className="w-full h-96 rounded-xl shadow-2xl overflow-hidden border border-border hover:border-gold/50 transition-all duration-500 transform hover:scale-105">
+              <img 
+                src={workspaceImage} 
+                alt={t.workspace.title}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="absolute -bottom-8 -left-8 bg-gradient-to-r from-gold to-gold-light text-foreground p-6 rounded-xl shadow-xl border border-gold/50 hover:scale-105 transition-transform duration-300">
               <div className="text-3xl font-bold">{t.achievement.number}</div>

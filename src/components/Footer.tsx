@@ -55,7 +55,7 @@ const Footer = ({ currentLanguage, onLanguageChange }: FooterProps) => {
             </p>
             <div className="flex items-center gap-2 text-muted-foreground">
               <Mail size={16} className="text-silver" />
-              <span>max.mueller@webdev-pro.de</span>
+              <span>cevin.mueller@webdev-pro.de</span>
             </div>
           </div>
 

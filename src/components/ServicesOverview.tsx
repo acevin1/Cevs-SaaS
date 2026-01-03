@@ -1,5 +1,5 @@
 
-import { Monitor, MapPin, Instagram, TrendingUp } from 'lucide-react';
+import { Monitor, Instagram, TrendingUp, Palette } from 'lucide-react';
 
 interface ServicesOverviewProps {
   currentLanguage: 'de' | 'en';
@@ -12,12 +12,12 @@ const ServicesOverview = ({ currentLanguage }: ServicesOverviewProps) => {
       subtitle: "Individuelle Lösungen für deinen digitalen Erfolg – alles aus einer Hand.",
       services: [
         {
-          title: "Website-Erstellung",
-          description: "Individuelle Websites für Einzelunternehmer und kleine Unternehmen – keine Baukastensysteme."
+          title: "One-Pager & Websites",
+          description: "Meine Spezialität: Schöne One-Pager die überzeugen. Multi-Page Websites ebenfalls möglich."
         },
         {
-          title: "Google-Einträge",
-          description: "Optimiere deine lokale Sichtbarkeit mit professionellen Google Business Profilen."
+          title: "Logo & Corporate Design",
+          description: "Einzigartiges Branding mit Logo, Farbpalette und digitalem Styleguide."
         },
         {
           title: "Social-Media-Beratung",
@@ -34,12 +34,12 @@ const ServicesOverview = ({ currentLanguage }: ServicesOverviewProps) => {
       subtitle: "Individual solutions for your digital success – everything from one source.",
       services: [
         {
-          title: "Website Creation",
-          description: "Custom websites for solo entrepreneurs and small businesses – no template systems."
+          title: "One-Pagers & Websites",
+          description: "My specialty: Beautiful one-pagers that convince. Multi-page websites also possible."
         },
         {
-          title: "Google Listings",
-          description: "Optimize your local visibility with professional Google Business profiles."
+          title: "Logo & Corporate Design",
+          description: "Unique branding with logo, color palette and digital style guide."
         },
         {
           title: "Social Media Consulting",
@@ -56,7 +56,7 @@ const ServicesOverview = ({ currentLanguage }: ServicesOverviewProps) => {
   const t = content[currentLanguage];
   const services = [
     { icon: Monitor, ...t.services[0] },
-    { icon: MapPin, ...t.services[1] },
+    { icon: Palette, ...t.services[1] },
     { icon: Instagram, ...t.services[2] },
     { icon: TrendingUp, ...t.services[3] }
   ];
