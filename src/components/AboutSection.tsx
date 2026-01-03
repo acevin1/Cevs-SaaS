@@ -113,10 +113,6 @@ const AboutSection = ({ currentLanguage }: AboutSectionProps) => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-8 -left-8 bg-gradient-to-r from-gold to-gold-light text-foreground p-6 rounded-xl shadow-xl border border-gold/50 hover:scale-105 transition-transform duration-300">
-              <div className="text-3xl font-bold">{t.achievement.number}</div>
-              <div className="text-sm">{t.achievement.text}</div>
-            </div>
           </div>
         </div>
       </div>
