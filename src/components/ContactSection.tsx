@@ -1,12 +1,24 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MessageCircle, Send } from 'lucide-react';
+import { Mail, Phone, MessageCircle, Send, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { useToast } from '@/hooks/use-toast';
+
+// ============================================
+// EMAILJS KONFIGURATION - HIER DEINE WERTE EINTRAGEN
+// ============================================
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';    // z.B. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // z.B. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';    // Dein Public Key
+// ============================================
 
 interface ContactSectionProps {
   currentLanguage: 'de' | 'en';
 }
 
 const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,6 +49,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
         message: "Nachricht *",
         callback: "Ich wünsche einen Rückruf",
         submit: "Nachricht senden",
+        sending: "Wird gesendet...",
         namePlaceholder: "Dein Name",
         emailPlaceholder: "deine@email.de",
         messagePlaceholder: "Erzähl mir von deinem Projekt...",
@@ -49,7 +62,9 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
           general: "Allgemein"
         }
       },
-      successMessage: "Vielen Dank für deine Nachricht! Ich melde mich innerhalb von 24h bei dir."
+      successMessage: "Vielen Dank für deine Nachricht! Ich melde mich innerhalb von 24h bei dir.",
+      errorMessage: "Es gab einen Fehler beim Senden. Bitte versuche es erneut.",
+      configError: "EmailJS ist noch nicht konfiguriert. Bitte trage deine Zugangsdaten ein."
     },
     en: {
       title: "Let's talk about your ",
@@ -72,6 +87,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
         message: "Message *",
         callback: "I would like a callback",
         submit: "Send message",
+        sending: "Sending...",
         namePlaceholder: "Your name",
         emailPlaceholder: "your@email.com",
         messagePlaceholder: "Tell me about your project...",
@@ -84,16 +100,70 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
           general: "General"
         }
       },
-      successMessage: "Thank you for your message! I'll get back to you within 24h."
+      successMessage: "Thank you for your message! I'll get back to you within 24h.",
+      errorMessage: "There was an error sending the message. Please try again.",
+      configError: "EmailJS is not configured yet. Please enter your credentials."
     }
   };
 
   const t = content[currentLanguage];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(t.successMessage);
+    
+    // Prüfe ob EmailJS konfiguriert ist
+    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' || 
+        EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
+        EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+      toast({
+        title: "Konfiguration fehlt",
+        description: t.configError,
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        topic: formData.topic || 'Nicht angegeben',
+        message: formData.message,
+        callback: formData.callback ? 'Ja' : 'Nein'
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Erfolgreich gesendet!",
+        description: t.successMessage
+      });
+
+      // Formular zurücksetzen
+      setFormData({
+        name: '',
+        email: '',
+        topic: '',
+        message: '',
+        callback: false
+      });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Fehler",
+        description: t.errorMessage,
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -161,7 +231,8 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground"
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground disabled:opacity-50"
                   placeholder={t.form.namePlaceholder}
                 />
               </div>
@@ -177,7 +248,8 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground"
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground disabled:opacity-50"
                   placeholder={t.form.emailPlaceholder}
                 />
               </div>
@@ -191,7 +263,8 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   name="topic"
                   value={formData.topic}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground"
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground disabled:opacity-50"
                 >
                   <option value="">{t.form.selectPlaceholder}</option>
                   <option value="website">{t.form.topics.website}</option>
@@ -212,8 +285,9 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled={isLoading}
                   rows={5}
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground"
+                  className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-secondary text-foreground placeholder-muted-foreground disabled:opacity-50"
                   placeholder={t.form.messagePlaceholder}
                 />
               </div>
@@ -225,6 +299,7 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
                   name="callback"
                   checked={formData.callback}
                   onChange={handleChange}
+                  disabled={isLoading}
                   className="w-4 h-4 text-gold border-border rounded focus:ring-gold bg-secondary"
                 />
                 <label htmlFor="callback" className="text-sm text-muted-foreground">
@@ -234,10 +309,20 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
 
               <button
                 type="submit"
-                className="w-full bg-gold text-foreground py-4 rounded-lg font-semibold hover:bg-gold-light transition-colors duration-300 flex items-center justify-center gap-2 group"
+                disabled={isLoading}
+                className="w-full bg-gold text-foreground py-4 rounded-lg font-semibold hover:bg-gold-light transition-colors duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {t.form.submit}
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    {t.form.sending}
+                  </>
+                ) : (
+                  <>
+                    {t.form.submit}
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </div>
