@@ -127,11 +127,9 @@ const ContactSection = ({ currentLanguage }: ContactSectionProps) => {
 
     try {
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        topic: formData.topic || 'Nicht angegeben',
-        message: formData.message,
-        callback: formData.callback ? 'Ja' : 'Nein'
+        name: formData.name,
+        email: formData.email,
+        message: `Thema: ${formData.topic || 'Nicht angegeben'}\nRückruf gewünscht: ${formData.callback ? 'Ja' : 'Nein'}\n\n${formData.message}`
       };
 
       await emailjs.send(
