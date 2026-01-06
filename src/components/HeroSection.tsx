@@ -83,10 +83,6 @@ const HeroSection = ({
                       </div>
                     </div>}
                 </div>
-                <input type="file" accept="image/*" onChange={handleImageUpload} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer rounded-full" />
-                <div className="absolute inset-0 rounded-full bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Upload className="text-foreground" size={32} />
-                </div>
               </div>
             </div>
 
