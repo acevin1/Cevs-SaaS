@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Imprint = () => {
   const [currentLanguage, setCurrentLanguage] = useState<'de' | 'en'>('de');
+  const [privacyText, setPrivacyText] = useState<string>('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -13,6 +14,12 @@ const Imprint = () => {
     if (savedLanguage) {
       setCurrentLanguage(savedLanguage);
     }
+
+    // Datenschutz-Text aus der externen Datei laden
+    fetch('/datenschutz.txt')
+      .then((response) => response.text())
+      .then((text) => setPrivacyText(text))
+      .catch((error) => console.error('Fehler beim Laden der Datenschutzerklärung:', error));
   }, []);
 
   const content = {
@@ -149,7 +156,7 @@ You have the right at any time to receive free information about your stored per
               {t.privacyContent.title}
             </h2>
             <div className="text-muted-foreground whitespace-pre-line leading-relaxed">
-              {t.privacyContent.text}
+              {privacyText || t.privacyContent.text}
             </div>
           </TabsContent>
         </Tabs>
